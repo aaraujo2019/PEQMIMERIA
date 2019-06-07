@@ -1,0 +1,2 @@
+# PeqMineria
+Pequeña Mineria
