@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F62A08A-ED4B-414D-BDC7-04BF5F9F196F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DBMETAL_SHARP</RootNamespace>
+    <AssemblyName>DBMETAL_SHARP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IrisSkin2">
+      <HintPath>..\..\..\Apoyo Proyectos\Apoyo Visual\Componentes Graficos Vb2\Componentes Graficos Vb2\SKIN NET 2010 WIN 7\SkinVS.NET\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\MessageBoxTemporal.cs" />
+    <Compile Include="Common\MyProgressBar .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DBMETALDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_CargaAnalisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_CargaAnalisis.Designer.cs">
+      <DependentUpon>Frm_CargaAnalisis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Conductores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Conductores.Designer.cs">
+      <DependentUpon>Frm_Conductores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Consultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Consultas.Designer.cs">
+      <DependentUpon>Frm_Consultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Contratistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Contratistas.Designer.cs">
+      <DependentUpon>Frm_Contratistas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Periodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Periodo.Designer.cs">
+      <DependentUpon>Frm_Periodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_TenorCalidadMuestras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_TenorCalidadMuestras.Designer.cs">
+      <DependentUpon>Frm_TenorCalidadMuestras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_DetalleLiquidacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_DetalleLiquidacion.Designer.cs">
+      <DependentUpon>Frm_DetalleLiquidacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Estadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Estadisticas.Designer.cs">
+      <DependentUpon>Frm_Estadisticas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_HumedadZandor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_HumedadZandor.Designer.cs">
+      <DependentUpon>Frm_HumedadZandor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Minas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Minas.Designer.cs">
+      <DependentUpon>Frm_Minas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Motos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Motos.Designer.cs">
+      <DependentUpon>Frm_Motos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_ControlCalidadMuestras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ControlCalidadMuestras.Designer.cs">
+      <DependentUpon>Frm_ControlCalidadMuestras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_MuestreoPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MuestreoPM.Designer.cs">
+      <DependentUpon>Frm_MuestreoPM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Localizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Localizacion.Designer.cs">
+      <DependentUpon>Frm_Localizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_PersonalMuestreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_PersonalMuestreo.Designer.cs">
+      <DependentUpon>Frm_PersonalMuestreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_PesajesMineraPlanta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_PesajesMineraPlanta.Designer.cs">
+      <DependentUpon>Frm_PesajesMineraPlanta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_PropietarioVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_PropietarioVehiculos.Designer.cs">
+      <DependentUpon>Frm_PropietarioVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_RelacionTransporteOtrosPesajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_RelacionTransporteOtrosPesajes.Designer.cs">
+      <DependentUpon>Frm_RelacionTransporteOtrosPesajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Subtipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Subtipos.Designer.cs">
+      <DependentUpon>Frm_Subtipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_TenorSGS2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_TenorSGS2.Designer.cs">
+      <DependentUpon>Frm_TenorSGS2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_TenorZandor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_TenorZandor.Designer.cs">
+      <DependentUpon>Frm_TenorZandor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Vehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Vehiculo.Designer.cs">
+      <DependentUpon>Frm_Vehiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_VistaVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_VistaVehiculos.Designer.cs">
+      <DependentUpon>Frm_VistaVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\DataSet\ControlSecurityDataSet.cs">
+      <DependentUpon>ControlSecurityDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\DataSet\ControlSecurityDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlSecurityDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\frmPpal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\frmPpal.Designer.cs">
+      <DependentUpon>frmPpal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\frmReportesSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\frmReportesSeguridad.Designer.cs">
+      <DependentUpon>frmReportesSeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\frmReportMananger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\frmReportMananger.Designer.cs">
+      <DependentUpon>frmReportMananger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\ManagePermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\ManagePermissions.Designer.cs">
+      <DependentUpon>ManagePermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidacion\ManageRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liquidacion\ManageRoles.Designer.cs">
+      <DependentUpon>ManageRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_TenorSGS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_TenorSGS.Designer.cs">
+      <DependentUpon>Frm_TenorSGS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextConcept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextConcept.Designer.cs">
+      <DependentUpon>TextConcept.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Frm_CargaAnalisis.resx">
+      <DependentUpon>Frm_CargaAnalisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Conductores.resx">
+      <DependentUpon>Frm_Conductores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Consultas.resx">
+      <DependentUpon>Frm_Consultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Contratistas.resx">
+      <DependentUpon>Frm_Contratistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Periodo.resx">
+      <DependentUpon>Frm_Periodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_TenorCalidadMuestras.resx">
+      <DependentUpon>Frm_TenorCalidadMuestras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_DetalleLiquidacion.resx">
+      <DependentUpon>Frm_DetalleLiquidacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Estadisticas.resx">
+      <DependentUpon>Frm_Estadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_HumedadZandor.resx">
+      <DependentUpon>Frm_HumedadZandor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Minas.resx">
+      <DependentUpon>Frm_Minas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Motos.resx">
+      <DependentUpon>Frm_Motos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_ControlCalidadMuestras.resx">
+      <DependentUpon>Frm_ControlCalidadMuestras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_MuestreoPM.resx">
+      <DependentUpon>Frm_MuestreoPM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Localizacion.resx">
+      <DependentUpon>Frm_Localizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_PersonalMuestreo.resx">
+      <DependentUpon>Frm_PersonalMuestreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_PesajesMineraPlanta.resx">
+      <DependentUpon>Frm_PesajesMineraPlanta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_PropietarioVehiculos.resx">
+      <DependentUpon>Frm_PropietarioVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_RelacionTransporteOtrosPesajes.resx">
+      <DependentUpon>Frm_RelacionTransporteOtrosPesajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Subtipos.resx">
+      <DependentUpon>Frm_Subtipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_TenorSGS.resx">
+      <DependentUpon>Frm_TenorSGS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_TenorSGS2.resx">
+      <DependentUpon>Frm_TenorSGS2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_TenorZandor.resx">
+      <DependentUpon>Frm_TenorZandor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Vehiculo.resx">
+      <DependentUpon>Frm_Vehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_VistaVehiculos.resx">
+      <DependentUpon>Frm_VistaVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\frmPpal.resx">
+      <DependentUpon>frmPpal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\frmReportesSeguridad.resx">
+      <DependentUpon>frmReportesSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\frmReportMananger.resx">
+      <DependentUpon>frmReportMananger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\ManagePermissions.resx">
+      <DependentUpon>ManagePermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liquidacion\ManageRoles.resx">
+      <DependentUpon>ManageRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextConcept.resx">
+      <DependentUpon>TextConcept.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DBMETALDataSet.xsc">
+      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBMETALDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBMETALDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBMETALDataSet.xss">
+      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Liquidacion\DataSet\ControlSecurityDataSet.xsc">
+      <DependentUpon>ControlSecurityDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Liquidacion\DataSet\ControlSecurityDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlSecurityDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Liquidacion\DataSet\ControlSecurityDataSet.xss">
+      <DependentUpon>ControlSecurityDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder download.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ondadegradada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impt_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apps_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\srch_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{a1bc98d1-983b-4da5-833c-729797450704}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReglasdeNegocio\ReglasdeNegocio.csproj">
+      <Project>{ff2bfa3d-08dc-4662-aea6-121c07b2dd30}</Project>
+      <Name>ReglasdeNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reportes\Reportes.csproj">
+      <Project>{e542b8da-1291-465d-a1c3-ab161b3d5494}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS_N1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS_N11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color picker.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoGCG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoGCG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoBarras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impt_161.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volqueta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impt_162.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impt_163.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\srch_161.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ondadegradada1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impt_164.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_161.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_161.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_161.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volqueta1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\srch_162.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impt_165.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_full.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_162.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_162.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volqueta2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ondadegradada2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apps_161.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_162.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SGS_21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoBarras1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoBarras2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color picker1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tara.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fill down.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vfr-1200-xd-cc-menu-honda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fill down1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajar2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajar3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajar4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Conductor_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Driver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Conductor_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer setup.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OndadegradadaL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Email.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer setup1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lgicn_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sesion.jpg" />
+    <None Include="Resources\Refresh-icon_Value.png" />
+    <None Include="Resources\Refresh-icon.png" />
+    <None Include="Resources\Recckeck2.png" />
+    <None Include="Resources\Recheck.png" />
+    <None Include="Resources\Car.png" />
+    <None Include="Resources\Car_16.png" />
+    <None Include="Resources\Boton_rojo.png" />
+    <None Include="Resources\Boton_verde.png" />
+    <None Include="Resources\Boton_rojo32.png" />
+    <None Include="Resources\Boton_verde32.png" />
+    <None Include="Resources\BarrasL.png" />
+    <Content Include="Resources\Cerrar_Periodo.png" />
+    <None Include="Resources\LogoAccesoDBMETAL.jpg" />
+    <None Include="Resources\logo colombian gold orgullosos-01.png" />
+    <Content Include="Resources\minero %281%29.png" />
+    <Content Include="Resources\Pluss.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

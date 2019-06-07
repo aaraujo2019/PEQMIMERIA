@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReporteLiquidacion" targetNamespace="http://tempuri.org/ReporteLiquidacion.xsd" xmlns:mstns="http://tempuri.org/ReporteLiquidacion.xsd" xmlns="http://tempuri.org/ReporteLiquidacion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBMETALConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBMETALConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Reportes.Properties.Settings.GlobalReference.Default.DBMETALConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_Mineras_DetalleTableAdapter" GeneratorDataComponentClassName="Reporte_Mineras_DetalleTableAdapter" Name="Reporte_Mineras_Detalle" UserDataComponentName="Reporte_Mineras_DetalleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, ConsecutivoBascula, TonHumeda, Humedad, ToneladaSeca, TenorAu, OnzasAU, NombreProyecto, Consecutivo, SelloControl, Sellos, Contenedor, Desviacion
+FROM            Reporte_Mineras_Detalle</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ConsecutivoBascula" DataSetColumn="ConsecutivoBascula" />
+              <Mapping SourceColumn="TonHumeda" DataSetColumn="TonHumeda" />
+              <Mapping SourceColumn="Humedad" DataSetColumn="Humedad" />
+              <Mapping SourceColumn="ToneladasSeca" DataSetColumn="ToneladaSeca" />
+              <Mapping SourceColumn="TenorAu" DataSetColumn="TenorAu" />
+              <Mapping SourceColumn="OnzasAU" DataSetColumn="OnzasAU" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="NombreProyecto" />
+              <Mapping SourceColumn="FechaProceso" DataSetColumn="FechaProceso" />
+              <Mapping SourceColumn="ToneladaSeca" DataSetColumn="ToneladaSeca" />
+              <Mapping SourceColumn="NombreProyecto" DataSetColumn="NombreProyecto" />
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
+              <Mapping SourceColumn="SelloControl" DataSetColumn="SelloControl" />
+              <Mapping SourceColumn="Sellos" DataSetColumn="Sellos" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+              <Mapping SourceColumn="Desviacion" DataSetColumn="Desviacion" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillData" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataFilter" GeneratorSourceName="FillData" GetMethodModifier="Public" GetMethodName="GetDataFilter" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataFilter" UserSourceName="FillData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Consecutivo, ConsecutivoBascula, Contenedor, Desviacion, FechaProceso, Humedad, NombreProyecto, OnzasAU, SelloControl, Sellos, TenorAu, TonHumeda, ToneladaSeca
+FROM            Reporte_Mineras_Detalle
+WHERE        (FechaProceso &gt;= CONVERT(date, @fecha1)) AND (FechaProceso &lt;= CONVERT(date, @fecha2))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha2" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDate1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData1" GeneratorSourceName="FillDate1" GetMethodModifier="Public" GetMethodName="GetData1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData1" UserSourceName="FillDate1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Consecutivo, ConsecutivoBascula, Contenedor, Desviacion, FechaProceso, Humedad, NombreProyecto, OnzasAU, SelloControl, Sellos, TenorAu, TonHumeda, ToneladaSeca FROM Reporte_Mineras_Detalle WHERE (FechaProceso &gt;= CONVERT (date, @fecha1, 103))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_Mineras_Resumen_DiaTableAdapter" GeneratorDataComponentClassName="Reporte_Mineras_Resumen_DiaTableAdapter" Name="Reporte_Mineras_Resumen_Dia" UserDataComponentName="Reporte_Mineras_Resumen_DiaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataDay" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataDay" GeneratorSourceName="FillDataDay" GetMethodModifier="Public" GetMethodName="GetDataDay" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataDay" UserSourceName="FillDataDay">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Cantidad, NombreProyecto, TonHumeda, Contenedor, OnzasAU, ToneladaSeca, Humedad, tenorau
+FROM            Reporte_Mineras_Resumen_Dia
+WHERE        (FechaProceso &gt;= CONVERT(datetime, @fechaproceso)) AND (FechaProceso &lt;= CONVERT(datetime, @fechaprocesoFinal))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaproceso" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaproceso" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaprocesoFinal" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaprocesoFinal" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FechaProceso" DataSetColumn="FechaProceso" />
+              <Mapping SourceColumn="NombreProyecto" DataSetColumn="NombreProyecto" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+              <Mapping SourceColumn="OnzasAU" DataSetColumn="OnzasAU" />
+              <Mapping SourceColumn="ToneladaSeca" DataSetColumn="ToneladaSeca" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="TonHumeda" DataSetColumn="TonHumeda" />
+              <Mapping SourceColumn="Humedad" DataSetColumn="Humedad" />
+              <Mapping SourceColumn="tenorau" DataSetColumn="tenorau" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataParam" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataParam" GeneratorSourceName="FillDataParam" GetMethodModifier="Public" GetMethodName="GetDataParam" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataParam" UserSourceName="FillDataParam">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Cantidad, Contenedor, FechaProceso, Humedad, NombreProyecto, OnzasAU, TonHumeda, ToneladaSeca, tenorau FROM Reporte_Mineras_Resumen_Dia WHERE (FechaProceso &gt;= CONVERT (datetime, @fechaproceso)) AND (FechaProceso &lt;= CONVERT (datetime, @fechaprocesoFinal)) AND (NombreProyecto = @Nombre)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaproceso" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaproceso" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaprocesoFinal" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaprocesoFinal" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Nombre" ColumnName="NombreProyecto" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Resumen_Dia" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="NombreProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_Muestreo_DetalleTableAdapter" GeneratorDataComponentClassName="Reporte_Muestreo_DetalleTableAdapter" Name="Reporte_Muestreo_Detalle" UserDataComponentName="Reporte_Muestreo_DetalleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillReportDetail" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataDetail" GeneratorSourceName="FillReportDetail" GetMethodModifier="Public" GetMethodName="GetDataDetail" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataDetail" UserSourceName="FillReportDetail">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Contenedor, ConsecutivoBascula, Nombre, fechaconsulta, selloControl
+FROM            Reporte_Muestreo_Detalle
+WHERE        (FechaProceso &gt;= CONVERT(datetime, @fechaProcess)) AND (FechaProceso &lt;= CONVERT(datetime, @fechaFin))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaProcess" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DataTypeServer="char(30)" DbType="AnsiString" Direction="Input" ParameterName="@fechaProcess" Precision="0" ProviderType="Char" Scale="0" Size="30" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaFin" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DataTypeServer="char(30)" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="Char" Scale="0" Size="30" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FechaProceso" DataSetColumn="FechaProceso" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+              <Mapping SourceColumn="ConsecutivoBascula" DataSetColumn="ConsecutivoBascula" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="fechaconsulta" DataSetColumn="fechaconsulta" />
+              <Mapping SourceColumn="selloControl" DataSetColumn="selloControl" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataParamet" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataParamet" GeneratorSourceName="FillDataParamet" GetMethodModifier="Public" GetMethodName="GetDataParamet" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataParamet" UserSourceName="FillDataParamet">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Contenedor, ConsecutivoBascula, Nombre, fechaconsulta, selloControl
+FROM            Reporte_Muestreo_Detalle
+WHERE        (FechaProceso &gt;= CONVERT(datetime, @fechaProcess)) AND (FechaProceso &lt;= CONVERT(datetime, @fechaFin)) and Nombre=@Nombre</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaProcess" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DataTypeServer="char(30)" DbType="AnsiString" Direction="Input" ParameterName="@fechaProcess" Precision="0" ProviderType="Char" Scale="0" Size="30" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaFin" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DataTypeServer="char(30)" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="Char" Scale="0" Size="30" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="DBMETAL.dbo.Reporte_Muestreo_Detalle" DataTypeServer="nchar(50)" DbType="String" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="NChar" Scale="0" Size="50" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_MuestreoFaltante_DetalleTableAdapter" GeneratorDataComponentClassName="Reporte_MuestreoFaltante_DetalleTableAdapter" Name="Reporte_MuestreoFaltante_Detalle" UserDataComponentName="Reporte_MuestreoFaltante_DetalleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataFaltantes" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataFaltantes" GeneratorSourceName="FillDataFaltantes" GetMethodModifier="Public" GetMethodName="GetDataFaltantes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataFaltantes" UserSourceName="FillDataFaltantes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Consecutivo, NombreProyecto, Peso, ConsecutivoBascula, Contenedor FROM Reporte_MuestreoFaltante_Detalle WHERE (FechaProceso = @FechaProcess)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="FechaProcess" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@FechaProcess" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
+              <Mapping SourceColumn="NombreProyecto" DataSetColumn="NombreProyecto" />
+              <Mapping SourceColumn="Peso" DataSetColumn="Peso" />
+              <Mapping SourceColumn="ConsecutivoBascula" DataSetColumn="ConsecutivoBascula" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_Liquidacion_PeriodoTableAdapter" GeneratorDataComponentClassName="Reporte_Liquidacion_PeriodoTableAdapter" Name="Reporte_Liquidacion_Periodo" UserDataComponentName="Reporte_Liquidacion_PeriodoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Vw_TotalMinasPeriodo" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillPeriodo" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataPeriodo" GeneratorSourceName="FillPeriodo" GetMethodModifier="Public" GetMethodName="GetDataPeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataPeriodo" UserSourceName="FillPeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdPeriodo, Ano, Mes, Periodo, Contenedor, Mina, Toneladas, Onzas, Tenor
+FROM            Vw_TotalMinasPeriodo
+WHERE        (IdPeriodo = @Periodo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Periodo" ColumnName="IdPeriodo" DataSourceName="DBMETAL.dbo.Vw_TotalMinasPeriodo" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@Periodo" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="IdPeriodo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdPeriodo" DataSetColumn="IdPeriodo" />
+              <Mapping SourceColumn="Ano" DataSetColumn="Ano" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+              <Mapping SourceColumn="Periodo" DataSetColumn="Periodo" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+              <Mapping SourceColumn="Mina" DataSetColumn="Mina" />
+              <Mapping SourceColumn="Toneladas" DataSetColumn="Toneladas" />
+              <Mapping SourceColumn="Onzas" DataSetColumn="Onzas" />
+              <Mapping SourceColumn="Tenor" DataSetColumn="Tenor" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_Onzas_RecuperadasTableAdapter" GeneratorDataComponentClassName="Reporte_Onzas_RecuperadasTableAdapter" Name="Reporte_Onzas_Recuperadas" UserDataComponentName="Reporte_Onzas_RecuperadasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Vw_DetalleOnzasRecuperadas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillOnzasRecup" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataOnzasRecuperadas" GeneratorSourceName="FillOnzasRecup" GetMethodModifier="Public" GetMethodName="GetDataOnzasRecuperadas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataOnzasRecuperadas" UserSourceName="FillOnzasRecup">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdPeriodo, AnoPeriodo, MesPeriodo, Periodo, RecuperacionPlanta, Contenedor, Mina, Toneladas, Tenor, OnzasEntregadas, OnzasRecuperadas, OnzasFundidas
+FROM            Vw_DetalleOnzasRecuperadas
+WHERE        (AnoPeriodo = @Ano) AND (MesPeriodo = @Mes) AND (Periodo = @Periodo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Ano" ColumnName="AnoPeriodo" DataSourceName="DBMETAL.dbo.Vw_DetalleOnzasRecuperadas" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@Ano" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="AnoPeriodo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="MesPeriodo" DataSourceName="DBMETAL.dbo.Vw_DetalleOnzasRecuperadas" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@Mes" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="MesPeriodo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Periodo" ColumnName="Periodo" DataSourceName="DBMETAL.dbo.Vw_DetalleOnzasRecuperadas" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@Periodo" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="Periodo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdPeriodo" DataSetColumn="IdPeriodo" />
+              <Mapping SourceColumn="AnoPeriodo" DataSetColumn="AnoPeriodo" />
+              <Mapping SourceColumn="MesPeriodo" DataSetColumn="MesPeriodo" />
+              <Mapping SourceColumn="Periodo" DataSetColumn="Periodo" />
+              <Mapping SourceColumn="RecuperacionPlanta" DataSetColumn="RecuperacionPlanta" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+              <Mapping SourceColumn="Mina" DataSetColumn="Mina" />
+              <Mapping SourceColumn="Toneladas" DataSetColumn="Toneladas" />
+              <Mapping SourceColumn="Tenor" DataSetColumn="Tenor" />
+              <Mapping SourceColumn="OnzasEntregadas" DataSetColumn="OnzasEntregadas" />
+              <Mapping SourceColumn="OnzasRecuperadas" DataSetColumn="OnzasRecuperadas" />
+              <Mapping SourceColumn="OnzasFundidas" DataSetColumn="OnzasFundidas" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vm_GetUsetForRolesTableAdapter" GeneratorDataComponentClassName="Vm_GetUsetForRolesTableAdapter" Name="Vm_GetUsetForRoles" UserDataComponentName="Vm_GetUsetForRolesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Vm_GetUsetForRoles" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillGetUser" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataUser" GeneratorSourceName="FillGetUser" GetMethodModifier="Public" GetMethodName="GetDataUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataUser" UserSourceName="FillGetUser">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Name, FKPage, ControlID, Invisible, Disabled, RoleName, ContenedorPeqMineria, ContenedorZandor, ContenedorOtros
+FROM            Vm_GetUsetForRoles
+WHERE        (Name = @NameFilter)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="NameFilter" ColumnName="Name" DataSourceName="DBMETAL.dbo.Vm_GetUsetForRoles" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@NameFilter" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="FKPage" DataSetColumn="FKPage" />
+              <Mapping SourceColumn="ControlID" DataSetColumn="ControlID" />
+              <Mapping SourceColumn="Invisible" DataSetColumn="Invisible" />
+              <Mapping SourceColumn="Disabled" DataSetColumn="Disabled" />
+              <Mapping SourceColumn="RoleName" DataSetColumn="RoleName" />
+              <Mapping SourceColumn="ContenedorPeqMineria" DataSetColumn="ContenedorPeqMineria" />
+              <Mapping SourceColumn="ContenedorZandor" DataSetColumn="ContenedorZandor" />
+              <Mapping SourceColumn="ContenedorOtros" DataSetColumn="ContenedorOtros" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Vm_GetUsetForRoles" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByAll" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAll" GeneratorSourceName="FillByAll" GetMethodModifier="Public" GetMethodName="GetDataByAll" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAll" UserSourceName="FillByAll">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Name, FKPage, ControlID, Invisible, Disabled, RoleName, ContenedorPeqMineria, ContenedorZandor, ContenedorOtros
+FROM            Vm_GetUsetForRoles</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_MuestreoFaltante_Detalle1TableAdapter" GeneratorDataComponentClassName="Reporte_MuestreoFaltante_Detalle1TableAdapter" Name="Reporte_MuestreoFaltante_Detalle1" UserDataComponentName="Reporte_MuestreoFaltante_Detalle1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataFalt1" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataFalt2" GeneratorSourceName="FillDataFalt1" GetMethodModifier="Public" GetMethodName="GetDataFalt2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataFalt2" UserSourceName="FillDataFalt1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Consecutivo, NombreProyecto, Peso, ConsecutivoBascula, Contenedor
+FROM            Reporte_MuestreoFaltante_Detalle</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FechaProceso" DataSetColumn="FechaProceso" />
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
+              <Mapping SourceColumn="NombreProyecto" DataSetColumn="NombreProyecto" />
+              <Mapping SourceColumn="Peso" DataSetColumn="Peso" />
+              <Mapping SourceColumn="ConsecutivoBascula" DataSetColumn="ConsecutivoBascula" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByFaltant1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataFaltant1" GeneratorSourceName="FillByFaltant1" GetMethodModifier="Public" GetMethodName="GetDataFaltant1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataFaltant1" UserSourceName="FillByFaltant1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Consecutivo, NombreProyecto, Peso, ConsecutivoBascula, Contenedor
+FROM            Reporte_MuestreoFaltante_Detalle
+WHERE        (FechaProceso = @fecha1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByFaltant12" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataFaltant12" GeneratorSourceName="FillByFaltant12" GetMethodModifier="Public" GetMethodName="GetDataFaltant12" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataFaltant12" UserSourceName="FillByFaltant12">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Consecutivo, NombreProyecto, Peso, ConsecutivoBascula, Contenedor
+FROM            Reporte_MuestreoFaltante_Detalle
+WHERE        (FechaProceso = @fecha1 and FechaProceso = @fecha2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha2" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataParam" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataParam" GeneratorSourceName="FillDataParam" GetMethodModifier="Public" GetMethodName="GetDataParam" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataParam" UserSourceName="FillDataParam">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Consecutivo, NombreProyecto, Peso, ConsecutivoBascula, Contenedor
+FROM            Reporte_MuestreoFaltante_Detalle
+WHERE        (FechaProceso = @fecha1 and FechaProceso = @fecha2) and NombreProyecto=@Nombre</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha2" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Nombre" ColumnName="NombreProyecto" DataSourceName="DBMETAL.dbo.Reporte_MuestreoFaltante_Detalle" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="NombreProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Reporte_Mineras_Detalle1TableAdapter" GeneratorDataComponentClassName="Reporte_Mineras_Detalle1TableAdapter" Name="Reporte_Mineras_Detalle1" UserDataComponentName="Reporte_Mineras_Detalle1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FechaProceso, Consecutivo, SelloControl, Sellos, NombreProyecto, TonHumeda, ConsecutivoBascula, Contenedor, TenorAu, Humedad, OnzasAU, ToneladaSeca, Desviacion
+FROM            Reporte_Mineras_Detalle</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FechaProceso" DataSetColumn="FechaProceso" />
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
+              <Mapping SourceColumn="SelloControl" DataSetColumn="SelloControl" />
+              <Mapping SourceColumn="Sellos" DataSetColumn="Sellos" />
+              <Mapping SourceColumn="NombreProyecto" DataSetColumn="NombreProyecto" />
+              <Mapping SourceColumn="TonHumeda" DataSetColumn="TonHumeda" />
+              <Mapping SourceColumn="ConsecutivoBascula" DataSetColumn="ConsecutivoBascula" />
+              <Mapping SourceColumn="Contenedor" DataSetColumn="Contenedor" />
+              <Mapping SourceColumn="TenorAu" DataSetColumn="TenorAu" />
+              <Mapping SourceColumn="Humedad" DataSetColumn="Humedad" />
+              <Mapping SourceColumn="OnzasAU" DataSetColumn="OnzasAU" />
+              <Mapping SourceColumn="ToneladaSeca" DataSetColumn="ToneladaSeca" />
+              <Mapping SourceColumn="Desviacion" DataSetColumn="Desviacion" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillData" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataFilter" GeneratorSourceName="FillData" GetMethodModifier="Public" GetMethodName="GetDataFilter" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataFilter" UserSourceName="FillData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Consecutivo, ConsecutivoBascula, Contenedor, Desviacion, FechaProceso, Humedad, NombreProyecto, OnzasAU, SelloControl, Sellos, TenorAu, TonHumeda, ToneladaSeca FROM Reporte_Mineras_Detalle WHERE (FechaProceso &gt;= CONVERT (date, @fecha1)) AND (FechaProceso &lt;= CONVERT (date, @fecha2))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha2" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDataParam" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataParam" GeneratorSourceName="FillDataParam" GetMethodModifier="Public" GetMethodName="GetDataParam" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataParam" UserSourceName="FillDataParam">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Consecutivo, ConsecutivoBascula, Contenedor, Desviacion, FechaProceso, Humedad, NombreProyecto, OnzasAU, SelloControl, Sellos, TenorAu, TonHumeda, ToneladaSeca FROM Reporte_Mineras_Detalle WHERE (FechaProceso &gt;= CONVERT (date, @fecha1)) AND (FechaProceso &lt;= CONVERT (date, @fecha2)) AND (NombreProyecto = @Nombre)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha2" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha2" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Nombre" ColumnName="NombreProyecto" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="NombreProyecto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBMETALConnectionString1 (Settings)" DbObjectName="DBMETAL.dbo.Reporte_Mineras_Detalle" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillDate1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData1" GeneratorSourceName="FillDate1" GetMethodModifier="Public" GetMethodName="GetData1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData1" UserSourceName="FillDate1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Consecutivo, ConsecutivoBascula, Contenedor, Desviacion, FechaProceso, Humedad, NombreProyecto, OnzasAU, SelloControl, Sellos, TenorAu, TonHumeda, ToneladaSeca FROM Reporte_Mineras_Detalle WHERE (FechaProceso &gt;= CONVERT (date, @fecha1, 103))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha1" ColumnName="FechaProceso" DataSourceName="DBMETAL.dbo.Reporte_Mineras_Detalle" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="FechaProceso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReporteLiquidacion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReporteLiquidacion" msprop:Generator_UserDSName="ReporteLiquidacion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Reporte_Mineras_Detalle" msprop:Generator_TableClassName="Reporte_Mineras_DetalleDataTable" msprop:Generator_TableVarName="tableReporte_Mineras_Detalle" msprop:Generator_RowChangedName="Reporte_Mineras_DetalleRowChanged" msprop:Generator_TablePropName="Reporte_Mineras_Detalle" msprop:Generator_RowDeletingName="Reporte_Mineras_DetalleRowDeleting" msprop:Generator_RowChangingName="Reporte_Mineras_DetalleRowChanging" msprop:Generator_RowEvHandlerName="Reporte_Mineras_DetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_Mineras_DetalleRowDeleted" msprop:Generator_RowClassName="Reporte_Mineras_DetalleRow" msprop:Generator_UserTableName="Reporte_Mineras_Detalle" msprop:Generator_RowEvArgName="Reporte_Mineras_DetalleRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ConsecutivoBascula" msprop:Generator_ColumnVarNameInTable="columnConsecutivoBascula" msprop:Generator_ColumnPropNameInRow="ConsecutivoBascula" msprop:Generator_ColumnPropNameInTable="ConsecutivoBasculaColumn" msprop:Generator_UserColumnName="ConsecutivoBascula" type="xs:int" minOccurs="0" />
+              <xs:element name="TonHumeda" msprop:Generator_ColumnVarNameInTable="columnTonHumeda" msprop:Generator_ColumnPropNameInRow="TonHumeda" msprop:Generator_ColumnPropNameInTable="TonHumedaColumn" msprop:Generator_UserColumnName="TonHumeda" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Humedad" msprop:Generator_ColumnVarNameInTable="columnHumedad" msprop:Generator_ColumnPropNameInRow="Humedad" msprop:Generator_ColumnPropNameInTable="HumedadColumn" msprop:Generator_UserColumnName="Humedad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ToneladaSeca" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToneladaSeca" msprop:Generator_ColumnPropNameInRow="ToneladaSeca" msprop:Generator_ColumnPropNameInTable="ToneladaSecaColumn" msprop:Generator_UserColumnName="ToneladaSeca" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TenorAu" msprop:Generator_ColumnVarNameInTable="columnTenorAu" msprop:Generator_ColumnPropNameInRow="TenorAu" msprop:Generator_ColumnPropNameInTable="TenorAuColumn" msprop:Generator_UserColumnName="TenorAu" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnzasAU" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnzasAU" msprop:Generator_ColumnPropNameInRow="OnzasAU" msprop:Generator_ColumnPropNameInTable="OnzasAUColumn" msprop:Generator_UserColumnName="OnzasAU" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NombreProyecto" msprop:Generator_ColumnVarNameInTable="columnNombreProyecto" msprop:Generator_ColumnPropNameInRow="NombreProyecto" msprop:Generator_ColumnPropNameInTable="NombreProyectoColumn" msprop:Generator_UserColumnName="NombreProyecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaProceso" msprop:Generator_ColumnVarNameInTable="columnFechaProceso" msprop:Generator_ColumnPropNameInRow="FechaProceso" msprop:Generator_ColumnPropNameInTable="FechaProcesoColumn" msprop:Generator_UserColumnName="FechaProceso" type="xs:dateTime" />
+              <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" type="xs:int" />
+              <xs:element name="SelloControl" msprop:Generator_ColumnVarNameInTable="columnSelloControl" msprop:Generator_ColumnPropNameInRow="SelloControl" msprop:Generator_ColumnPropNameInTable="SelloControlColumn" msprop:Generator_UserColumnName="SelloControl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sellos" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSellos" msprop:Generator_ColumnPropNameInRow="Sellos" msprop:Generator_ColumnPropNameInTable="SellosColumn" msprop:Generator_UserColumnName="Sellos" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Desviacion" msprop:Generator_ColumnVarNameInTable="columnDesviacion" msprop:Generator_ColumnPropNameInRow="Desviacion" msprop:Generator_ColumnPropNameInTable="DesviacionColumn" msprop:Generator_UserColumnName="Desviacion" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_Mineras_Resumen_Dia" msprop:Generator_TableClassName="Reporte_Mineras_Resumen_DiaDataTable" msprop:Generator_TableVarName="tableReporte_Mineras_Resumen_Dia" msprop:Generator_RowChangedName="Reporte_Mineras_Resumen_DiaRowChanged" msprop:Generator_TablePropName="Reporte_Mineras_Resumen_Dia" msprop:Generator_RowDeletingName="Reporte_Mineras_Resumen_DiaRowDeleting" msprop:Generator_RowChangingName="Reporte_Mineras_Resumen_DiaRowChanging" msprop:Generator_RowEvHandlerName="Reporte_Mineras_Resumen_DiaRowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_Mineras_Resumen_DiaRowDeleted" msprop:Generator_RowClassName="Reporte_Mineras_Resumen_DiaRow" msprop:Generator_UserTableName="Reporte_Mineras_Resumen_Dia" msprop:Generator_RowEvArgName="Reporte_Mineras_Resumen_DiaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaProceso" msprop:Generator_ColumnVarNameInTable="columnFechaProceso" msprop:Generator_ColumnPropNameInRow="FechaProceso" msprop:Generator_ColumnPropNameInTable="FechaProcesoColumn" msprop:Generator_UserColumnName="FechaProceso" type="xs:dateTime" />
+              <xs:element name="NombreProyecto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreProyecto" msprop:Generator_ColumnPropNameInRow="NombreProyecto" msprop:Generator_ColumnPropNameInTable="NombreProyectoColumn" msprop:Generator_UserColumnName="NombreProyecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OnzasAU" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnzasAU" msprop:Generator_ColumnPropNameInRow="OnzasAU" msprop:Generator_ColumnPropNameInTable="OnzasAUColumn" msprop:Generator_UserColumnName="OnzasAU" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ToneladaSeca" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToneladaSeca" msprop:Generator_ColumnPropNameInRow="ToneladaSeca" msprop:Generator_ColumnPropNameInTable="ToneladaSecaColumn" msprop:Generator_UserColumnName="ToneladaSeca" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="TonHumeda" msprop:Generator_ColumnVarNameInTable="columnTonHumeda" msprop:Generator_ColumnPropNameInRow="TonHumeda" msprop:Generator_ColumnPropNameInTable="TonHumedaColumn" msprop:Generator_UserColumnName="TonHumeda" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Humedad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHumedad" msprop:Generator_ColumnPropNameInRow="Humedad" msprop:Generator_ColumnPropNameInTable="HumedadColumn" msprop:Generator_UserColumnName="Humedad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tenorau" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntenorau" msprop:Generator_ColumnPropNameInRow="tenorau" msprop:Generator_ColumnPropNameInTable="tenorauColumn" msprop:Generator_UserColumnName="tenorau" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_Muestreo_Detalle" msprop:Generator_TableClassName="Reporte_Muestreo_DetalleDataTable" msprop:Generator_TableVarName="tableReporte_Muestreo_Detalle" msprop:Generator_TablePropName="Reporte_Muestreo_Detalle" msprop:Generator_RowDeletingName="Reporte_Muestreo_DetalleRowDeleting" msprop:Generator_RowChangingName="Reporte_Muestreo_DetalleRowChanging" msprop:Generator_RowEvHandlerName="Reporte_Muestreo_DetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_Muestreo_DetalleRowDeleted" msprop:Generator_UserTableName="Reporte_Muestreo_Detalle" msprop:Generator_RowChangedName="Reporte_Muestreo_DetalleRowChanged" msprop:Generator_RowEvArgName="Reporte_Muestreo_DetalleRowChangeEvent" msprop:Generator_RowClassName="Reporte_Muestreo_DetalleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaProceso" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaProceso" msprop:Generator_ColumnPropNameInRow="FechaProceso" msprop:Generator_ColumnPropNameInTable="FechaProcesoColumn" msprop:Generator_UserColumnName="FechaProceso" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ConsecutivoBascula" msprop:Generator_ColumnVarNameInTable="columnConsecutivoBascula" msprop:Generator_ColumnPropNameInRow="ConsecutivoBascula" msprop:Generator_ColumnPropNameInTable="ConsecutivoBasculaColumn" msprop:Generator_UserColumnName="ConsecutivoBascula" type="xs:int" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaconsulta" msprop:Generator_ColumnVarNameInTable="columnfechaconsulta" msprop:Generator_ColumnPropNameInRow="fechaconsulta" msprop:Generator_ColumnPropNameInTable="fechaconsultaColumn" msprop:Generator_UserColumnName="fechaconsulta" type="xs:dateTime" />
+              <xs:element name="selloControl" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnselloControl" msprop:Generator_ColumnPropNameInRow="selloControl" msprop:Generator_ColumnPropNameInTable="selloControlColumn" msprop:Generator_UserColumnName="selloControl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="49" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_MuestreoFaltante_Detalle" msprop:Generator_TableClassName="Reporte_MuestreoFaltante_DetalleDataTable" msprop:Generator_TableVarName="tableReporte_MuestreoFaltante_Detalle" msprop:Generator_TablePropName="Reporte_MuestreoFaltante_Detalle" msprop:Generator_RowDeletingName="Reporte_MuestreoFaltante_DetalleRowDeleting" msprop:Generator_RowChangingName="Reporte_MuestreoFaltante_DetalleRowChanging" msprop:Generator_RowEvHandlerName="Reporte_MuestreoFaltante_DetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_MuestreoFaltante_DetalleRowDeleted" msprop:Generator_UserTableName="Reporte_MuestreoFaltante_Detalle" msprop:Generator_RowChangedName="Reporte_MuestreoFaltante_DetalleRowChanged" msprop:Generator_RowEvArgName="Reporte_MuestreoFaltante_DetalleRowChangeEvent" msprop:Generator_RowClassName="Reporte_MuestreoFaltante_DetalleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaProceso" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaProceso" msprop:Generator_ColumnPropNameInRow="FechaProceso" msprop:Generator_ColumnPropNameInTable="FechaProcesoColumn" msprop:Generator_UserColumnName="FechaProceso" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" type="xs:int" />
+              <xs:element name="NombreProyecto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreProyecto" msprop:Generator_ColumnPropNameInRow="NombreProyecto" msprop:Generator_ColumnPropNameInTable="NombreProyectoColumn" msprop:Generator_UserColumnName="NombreProyecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Peso" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPeso" msprop:Generator_ColumnPropNameInRow="Peso" msprop:Generator_ColumnPropNameInTable="PesoColumn" msprop:Generator_UserColumnName="Peso" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ConsecutivoBascula" msprop:Generator_ColumnVarNameInTable="columnConsecutivoBascula" msprop:Generator_ColumnPropNameInRow="ConsecutivoBascula" msprop:Generator_ColumnPropNameInTable="ConsecutivoBasculaColumn" msprop:Generator_UserColumnName="ConsecutivoBascula" type="xs:int" minOccurs="0" />
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_Liquidacion_Periodo" msprop:Generator_TableClassName="Reporte_Liquidacion_PeriodoDataTable" msprop:Generator_TableVarName="tableReporte_Liquidacion_Periodo" msprop:Generator_RowChangedName="Reporte_Liquidacion_PeriodoRowChanged" msprop:Generator_TablePropName="Reporte_Liquidacion_Periodo" msprop:Generator_RowDeletingName="Reporte_Liquidacion_PeriodoRowDeleting" msprop:Generator_RowChangingName="Reporte_Liquidacion_PeriodoRowChanging" msprop:Generator_RowEvHandlerName="Reporte_Liquidacion_PeriodoRowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_Liquidacion_PeriodoRowDeleted" msprop:Generator_RowClassName="Reporte_Liquidacion_PeriodoRow" msprop:Generator_UserTableName="Reporte_Liquidacion_Periodo" msprop:Generator_RowEvArgName="Reporte_Liquidacion_PeriodoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPeriodo" msprop:Generator_ColumnVarNameInTable="columnIdPeriodo" msprop:Generator_ColumnPropNameInRow="IdPeriodo" msprop:Generator_ColumnPropNameInTable="IdPeriodoColumn" msprop:Generator_UserColumnName="IdPeriodo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ano" msprop:Generator_ColumnVarNameInTable="columnAno" msprop:Generator_ColumnPropNameInRow="Ano" msprop:Generator_ColumnPropNameInTable="AnoColumn" msprop:Generator_UserColumnName="Ano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mina" msprop:Generator_ColumnVarNameInTable="columnMina" msprop:Generator_ColumnPropNameInRow="Mina" msprop:Generator_ColumnPropNameInTable="MinaColumn" msprop:Generator_UserColumnName="Mina">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Toneladas" msprop:Generator_ColumnVarNameInTable="columnToneladas" msprop:Generator_ColumnPropNameInRow="Toneladas" msprop:Generator_ColumnPropNameInTable="ToneladasColumn" msprop:Generator_UserColumnName="Toneladas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Onzas" msprop:Generator_ColumnVarNameInTable="columnOnzas" msprop:Generator_ColumnPropNameInRow="Onzas" msprop:Generator_ColumnPropNameInTable="OnzasColumn" msprop:Generator_UserColumnName="Onzas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tenor" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTenor" msprop:Generator_ColumnPropNameInRow="Tenor" msprop:Generator_ColumnPropNameInTable="TenorColumn" msprop:Generator_UserColumnName="Tenor" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_Onzas_Recuperadas" msprop:Generator_TableClassName="Reporte_Onzas_RecuperadasDataTable" msprop:Generator_TableVarName="tableReporte_Onzas_Recuperadas" msprop:Generator_TablePropName="Reporte_Onzas_Recuperadas" msprop:Generator_RowDeletingName="Reporte_Onzas_RecuperadasRowDeleting" msprop:Generator_RowChangingName="Reporte_Onzas_RecuperadasRowChanging" msprop:Generator_RowEvHandlerName="Reporte_Onzas_RecuperadasRowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_Onzas_RecuperadasRowDeleted" msprop:Generator_UserTableName="Reporte_Onzas_Recuperadas" msprop:Generator_RowChangedName="Reporte_Onzas_RecuperadasRowChanged" msprop:Generator_RowEvArgName="Reporte_Onzas_RecuperadasRowChangeEvent" msprop:Generator_RowClassName="Reporte_Onzas_RecuperadasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPeriodo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIdPeriodo" msprop:Generator_ColumnPropNameInRow="IdPeriodo" msprop:Generator_ColumnPropNameInTable="IdPeriodoColumn" msprop:Generator_UserColumnName="IdPeriodo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="62" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AnoPeriodo" msprop:Generator_ColumnVarNameInTable="columnAnoPeriodo" msprop:Generator_ColumnPropNameInRow="AnoPeriodo" msprop:Generator_ColumnPropNameInTable="AnoPeriodoColumn" msprop:Generator_UserColumnName="AnoPeriodo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MesPeriodo" msprop:Generator_ColumnVarNameInTable="columnMesPeriodo" msprop:Generator_ColumnPropNameInRow="MesPeriodo" msprop:Generator_ColumnPropNameInTable="MesPeriodoColumn" msprop:Generator_UserColumnName="MesPeriodo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RecuperacionPlanta" msprop:Generator_ColumnVarNameInTable="columnRecuperacionPlanta" msprop:Generator_ColumnPropNameInRow="RecuperacionPlanta" msprop:Generator_ColumnPropNameInTable="RecuperacionPlantaColumn" msprop:Generator_UserColumnName="RecuperacionPlanta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mina" msprop:Generator_ColumnVarNameInTable="columnMina" msprop:Generator_ColumnPropNameInRow="Mina" msprop:Generator_ColumnPropNameInTable="MinaColumn" msprop:Generator_UserColumnName="Mina">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Toneladas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToneladas" msprop:Generator_ColumnPropNameInRow="Toneladas" msprop:Generator_ColumnPropNameInTable="ToneladasColumn" msprop:Generator_UserColumnName="Toneladas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tenor" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTenor" msprop:Generator_ColumnPropNameInRow="Tenor" msprop:Generator_ColumnPropNameInTable="TenorColumn" msprop:Generator_UserColumnName="Tenor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnzasEntregadas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnzasEntregadas" msprop:Generator_ColumnPropNameInRow="OnzasEntregadas" msprop:Generator_ColumnPropNameInTable="OnzasEntregadasColumn" msprop:Generator_UserColumnName="OnzasEntregadas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnzasRecuperadas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnzasRecuperadas" msprop:Generator_ColumnPropNameInRow="OnzasRecuperadas" msprop:Generator_ColumnPropNameInTable="OnzasRecuperadasColumn" msprop:Generator_UserColumnName="OnzasRecuperadas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnzasFundidas" msprop:Generator_ColumnVarNameInTable="columnOnzasFundidas" msprop:Generator_ColumnPropNameInRow="OnzasFundidas" msprop:Generator_ColumnPropNameInTable="OnzasFundidasColumn" msprop:Generator_UserColumnName="OnzasFundidas" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Vm_GetUsetForRoles" msprop:Generator_TableClassName="Vm_GetUsetForRolesDataTable" msprop:Generator_TableVarName="tableVm_GetUsetForRoles" msprop:Generator_RowChangedName="Vm_GetUsetForRolesRowChanged" msprop:Generator_TablePropName="Vm_GetUsetForRoles" msprop:Generator_RowDeletingName="Vm_GetUsetForRolesRowDeleting" msprop:Generator_RowChangingName="Vm_GetUsetForRolesRowChanging" msprop:Generator_RowEvHandlerName="Vm_GetUsetForRolesRowChangeEventHandler" msprop:Generator_RowDeletedName="Vm_GetUsetForRolesRowDeleted" msprop:Generator_RowClassName="Vm_GetUsetForRolesRow" msprop:Generator_UserTableName="Vm_GetUsetForRoles" msprop:Generator_RowEvArgName="Vm_GetUsetForRolesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FKPage" msprop:Generator_ColumnVarNameInTable="columnFKPage" msprop:Generator_ColumnPropNameInRow="FKPage" msprop:Generator_ColumnPropNameInTable="FKPageColumn" msprop:Generator_UserColumnName="FKPage">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ControlID" msprop:Generator_ColumnVarNameInTable="columnControlID" msprop:Generator_ColumnPropNameInRow="ControlID" msprop:Generator_ColumnPropNameInTable="ControlIDColumn" msprop:Generator_UserColumnName="ControlID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Invisible" msprop:Generator_ColumnVarNameInTable="columnInvisible" msprop:Generator_ColumnPropNameInRow="Invisible" msprop:Generator_ColumnPropNameInTable="InvisibleColumn" msprop:Generator_UserColumnName="Invisible" type="xs:int" />
+              <xs:element name="Disabled" msprop:Generator_ColumnVarNameInTable="columnDisabled" msprop:Generator_ColumnPropNameInRow="Disabled" msprop:Generator_ColumnPropNameInTable="DisabledColumn" msprop:Generator_UserColumnName="Disabled" type="xs:int" />
+              <xs:element name="RoleName" msprop:Generator_ColumnVarNameInTable="columnRoleName" msprop:Generator_ColumnPropNameInRow="RoleName" msprop:Generator_ColumnPropNameInTable="RoleNameColumn" msprop:Generator_UserColumnName="RoleName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContenedorPeqMineria" msprop:Generator_ColumnVarNameInTable="columnContenedorPeqMineria" msprop:Generator_ColumnPropNameInRow="ContenedorPeqMineria" msprop:Generator_ColumnPropNameInTable="ContenedorPeqMineriaColumn" msprop:Generator_UserColumnName="ContenedorPeqMineria" type="xs:int" minOccurs="0" />
+              <xs:element name="ContenedorZandor" msprop:Generator_ColumnVarNameInTable="columnContenedorZandor" msprop:Generator_ColumnPropNameInRow="ContenedorZandor" msprop:Generator_ColumnPropNameInTable="ContenedorZandorColumn" msprop:Generator_UserColumnName="ContenedorZandor" type="xs:int" minOccurs="0" />
+              <xs:element name="ContenedorOtros" msprop:Generator_ColumnVarNameInTable="columnContenedorOtros" msprop:Generator_ColumnPropNameInRow="ContenedorOtros" msprop:Generator_ColumnPropNameInTable="ContenedorOtrosColumn" msprop:Generator_UserColumnName="ContenedorOtros" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_MuestreoFaltante_Detalle1" msprop:Generator_TableClassName="Reporte_MuestreoFaltante_Detalle1DataTable" msprop:Generator_TableVarName="tableReporte_MuestreoFaltante_Detalle1" msprop:Generator_RowChangedName="Reporte_MuestreoFaltante_Detalle1RowChanged" msprop:Generator_TablePropName="Reporte_MuestreoFaltante_Detalle1" msprop:Generator_RowDeletingName="Reporte_MuestreoFaltante_Detalle1RowDeleting" msprop:Generator_RowChangingName="Reporte_MuestreoFaltante_Detalle1RowChanging" msprop:Generator_RowEvHandlerName="Reporte_MuestreoFaltante_Detalle1RowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_MuestreoFaltante_Detalle1RowDeleted" msprop:Generator_RowClassName="Reporte_MuestreoFaltante_Detalle1Row" msprop:Generator_UserTableName="Reporte_MuestreoFaltante_Detalle1" msprop:Generator_RowEvArgName="Reporte_MuestreoFaltante_Detalle1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaProceso" msprop:Generator_ColumnVarNameInTable="columnFechaProceso" msprop:Generator_ColumnPropNameInRow="FechaProceso" msprop:Generator_ColumnPropNameInTable="FechaProcesoColumn" msprop:Generator_UserColumnName="FechaProceso" type="xs:dateTime" />
+              <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" type="xs:int" />
+              <xs:element name="NombreProyecto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreProyecto" msprop:Generator_ColumnPropNameInRow="NombreProyecto" msprop:Generator_ColumnPropNameInTable="NombreProyectoColumn" msprop:Generator_UserColumnName="NombreProyecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Peso" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPeso" msprop:Generator_ColumnPropNameInRow="Peso" msprop:Generator_ColumnPropNameInTable="PesoColumn" msprop:Generator_UserColumnName="Peso" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ConsecutivoBascula" msprop:Generator_ColumnVarNameInTable="columnConsecutivoBascula" msprop:Generator_ColumnPropNameInRow="ConsecutivoBascula" msprop:Generator_ColumnPropNameInTable="ConsecutivoBasculaColumn" msprop:Generator_UserColumnName="ConsecutivoBascula" type="xs:int" minOccurs="0" />
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reporte_Mineras_Detalle1" msprop:Generator_TableClassName="Reporte_Mineras_Detalle1DataTable" msprop:Generator_TableVarName="tableReporte_Mineras_Detalle1" msprop:Generator_RowChangedName="Reporte_Mineras_Detalle1RowChanged" msprop:Generator_TablePropName="Reporte_Mineras_Detalle1" msprop:Generator_RowDeletingName="Reporte_Mineras_Detalle1RowDeleting" msprop:Generator_RowChangingName="Reporte_Mineras_Detalle1RowChanging" msprop:Generator_RowEvHandlerName="Reporte_Mineras_Detalle1RowChangeEventHandler" msprop:Generator_RowDeletedName="Reporte_Mineras_Detalle1RowDeleted" msprop:Generator_RowClassName="Reporte_Mineras_Detalle1Row" msprop:Generator_UserTableName="Reporte_Mineras_Detalle1" msprop:Generator_RowEvArgName="Reporte_Mineras_Detalle1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaProceso" msprop:Generator_ColumnVarNameInTable="columnFechaProceso" msprop:Generator_ColumnPropNameInRow="FechaProceso" msprop:Generator_ColumnPropNameInTable="FechaProcesoColumn" msprop:Generator_UserColumnName="FechaProceso" type="xs:dateTime" />
+              <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" type="xs:int" />
+              <xs:element name="SelloControl" msprop:Generator_ColumnVarNameInTable="columnSelloControl" msprop:Generator_ColumnPropNameInRow="SelloControl" msprop:Generator_ColumnPropNameInTable="SelloControlColumn" msprop:Generator_UserColumnName="SelloControl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sellos" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSellos" msprop:Generator_ColumnPropNameInRow="Sellos" msprop:Generator_ColumnPropNameInTable="SellosColumn" msprop:Generator_UserColumnName="Sellos" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreProyecto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreProyecto" msprop:Generator_ColumnPropNameInRow="NombreProyecto" msprop:Generator_ColumnPropNameInTable="NombreProyectoColumn" msprop:Generator_UserColumnName="NombreProyecto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TonHumeda" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTonHumeda" msprop:Generator_ColumnPropNameInRow="TonHumeda" msprop:Generator_ColumnPropNameInTable="TonHumedaColumn" msprop:Generator_UserColumnName="TonHumeda" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ConsecutivoBascula" msprop:Generator_ColumnVarNameInTable="columnConsecutivoBascula" msprop:Generator_ColumnPropNameInRow="ConsecutivoBascula" msprop:Generator_ColumnPropNameInTable="ConsecutivoBasculaColumn" msprop:Generator_UserColumnName="ConsecutivoBascula" type="xs:int" minOccurs="0" />
+              <xs:element name="Contenedor" msprop:Generator_ColumnVarNameInTable="columnContenedor" msprop:Generator_ColumnPropNameInRow="Contenedor" msprop:Generator_ColumnPropNameInTable="ContenedorColumn" msprop:Generator_UserColumnName="Contenedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenorAu" msprop:Generator_ColumnVarNameInTable="columnTenorAu" msprop:Generator_ColumnPropNameInRow="TenorAu" msprop:Generator_ColumnPropNameInTable="TenorAuColumn" msprop:Generator_UserColumnName="TenorAu" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Humedad" msprop:Generator_ColumnVarNameInTable="columnHumedad" msprop:Generator_ColumnPropNameInRow="Humedad" msprop:Generator_ColumnPropNameInTable="HumedadColumn" msprop:Generator_UserColumnName="Humedad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnzasAU" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnzasAU" msprop:Generator_ColumnPropNameInRow="OnzasAU" msprop:Generator_ColumnPropNameInTable="OnzasAUColumn" msprop:Generator_UserColumnName="OnzasAU" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ToneladaSeca" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToneladaSeca" msprop:Generator_ColumnPropNameInRow="ToneladaSeca" msprop:Generator_ColumnPropNameInTable="ToneladaSecaColumn" msprop:Generator_UserColumnName="ToneladaSeca" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Desviacion" msprop:Generator_ColumnVarNameInTable="columnDesviacion" msprop:Generator_ColumnPropNameInRow="Desviacion" msprop:Generator_ColumnPropNameInTable="DesviacionColumn" msprop:Generator_UserColumnName="Desviacion" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Reporte_Onzas_Recuperadas" />
+      <xs:field xpath="mstns:AnoPeriodo" />
+      <xs:field xpath="mstns:MesPeriodo" />
+      <xs:field xpath="mstns:Periodo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
