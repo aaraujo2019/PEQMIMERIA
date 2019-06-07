@@ -306,6 +306,7 @@ namespace DBMETAL_SHARP
                             }
                             else
                             {
+                                /* Modificado Alvaro Araujo 06/06/2019 */ 
                                 string valorEntrada = string.Empty;
                                 if (dataSet.Tables[0].Rows[k][1].ToString().Contains("<"))
                                 {
@@ -371,6 +372,8 @@ namespace DBMETAL_SHARP
                             guardarDatos.Numerico("Sp_Moficiar_ReclamosActlabs", pparametros);
                         }
                         MessageBox.Show("Importacion Finalizada");
+
+                        /* ***************************************************************************************  */
                     }
                 }
                 else
