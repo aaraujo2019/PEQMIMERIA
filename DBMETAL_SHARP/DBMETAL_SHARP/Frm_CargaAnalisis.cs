@@ -132,7 +132,7 @@ namespace DBMETAL_SHARP
                     {
                         try
                         {
-                            this.Cargar();
+                            Cargar();
                             if (string.IsNullOrEmpty(this.IpLocal))
                             {
                                 this.IpLocal = DireccionIP.Local();
@@ -169,8 +169,8 @@ namespace DBMETAL_SHARP
                 {
                     try
                     {
-                        this.LblTitulos.Text = "Análisis Químico Pequeña Minería";
-                        this.typeFile = 0;
+                        LblTitulos.Text = "Análisis Químico Pequeña Minería";
+                        typeFile = 0;
                         string value = string.Empty;
                         string idLab = dataSet.Tables[0].Rows[1][1].ToString().Trim();
                         for (int j = 10; j < dataSet.Tables[0].Rows.Count; j++)
@@ -243,8 +243,8 @@ namespace DBMETAL_SHARP
                 {
                     if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("INFORME DE RECLAMOS"))
                     {
-                        this.LblTitulos.Text = "INFORME DE RECLAMOS";
-                        this.typeFile = 2;
+                        LblTitulos.Text = "INFORME DE RECLAMOS";
+                        typeFile = 2;
                         for (int k = 45; k < dataSet.Tables[0].Rows.Count; k++)
                         {
                             string selloControl = dataSet.Tables[0].Rows[k][0].ToString().Replace(" ", "");
@@ -265,8 +265,8 @@ namespace DBMETAL_SHARP
 
                     if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("ACTLABS"))
                     {
-                        this.LblTitulos.Text = "ACTLABS Colombia S.A.S.";
-                        this.typeFile = 2;
+                        LblTitulos.Text = "ACTLABS Colombia S.A.S.";
+                        typeFile = 2;
 
                         string IdLab = dataSet.Tables[0].Rows[2][1].ToString();
 
@@ -380,8 +380,8 @@ namespace DBMETAL_SHARP
                 {
                     if (dataSet.Tables[0].Rows[15][3].ToString().Trim().ToUpper().Contains("HUM"))
                     {
-                        this.LblTitulos.Text = "Humedad Laboratorio Zandor";
-                        this.typeFile = 2;
+                        LblTitulos.Text = "Humedad Laboratorio Zandor";
+                        typeFile = 2;
                         for (int l = 45; l < dataSet.Tables[0].Rows.Count; l++)
                         {
                             string text3 = dataSet.Tables[0].Rows[l][0].ToString().Replace(" ", "");
@@ -403,8 +403,8 @@ namespace DBMETAL_SHARP
                     {
                         if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("LABORATORIO") && dataSet.Tables[0].Rows[2][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO"))
                         {
-                            this.LblTitulos.Text = "Analisis Laboratorio Químico Zandor Capital";
-                            this.typeFile = 1;
+                            LblTitulos.Text = "Analisis Laboratorio Químico Zandor Capital";
+                            typeFile = 1;
                             for (int m = 46; m < dataSet.Tables[0].Rows.Count; m++)
                             {
                                 string text4 = dataSet.Tables[0].Rows[m][0].ToString().Replace(" ", "");
@@ -431,8 +431,8 @@ namespace DBMETAL_SHARP
                         {
                             if (dataSet.Tables[0].Rows[2][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO") || dataSet.Tables[0].Rows[1][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO"))
                             {
-                                this.LblTitulos.Text = "Reporte de Análisis Químico";
-                                this.typeFile = 1;
+                                LblTitulos.Text = "Reporte de Análisis Químico";
+                                typeFile = 1;
                                 for (int n = 48; n < dataSet.Tables[0].Rows.Count; n++)
                                 {
                                     string text5 = dataSet.Tables[0].Rows[n][0].ToString().Replace(" ", "");
@@ -499,8 +499,16 @@ namespace DBMETAL_SHARP
             }
             catch (Exception)
             {
-                oleDbConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + SLibro + ";Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"");
-                oleDbConnection.Open();
+                try
+                {
+                    oleDbConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + SLibro + ";Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"");
+                    oleDbConnection.Open();
+                }
+                catch (Exception)
+                {
+                    oleDbConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.15.0;Data Source=" + SLibro + ";Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"");
+                    oleDbConnection.Open();
+                }
             }
 
             DataTable oleDbSchemaTable = oleDbConnection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
@@ -528,7 +536,7 @@ namespace DBMETAL_SHARP
         private void btnExit_Click(object sender, EventArgs e)
         {
             ActiveForm.Close();
-            this.Dispose(true);
+            Dispose(true);
         }
         #endregion Eventos
 
@@ -598,8 +606,8 @@ namespace DBMETAL_SHARP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose(true);
+            Close();
+            Dispose(true);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -613,10 +621,10 @@ namespace DBMETAL_SHARP
             this.descripcionArchivo = openFileDialog.FileName;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-                this.Txtruta.Text = openFileDialog.FileName;
+                Txtruta.Text = openFileDialog.FileName;
 
             if (Txtruta.Text != string.Empty)
-                CargaExcelCompleto(this.dtgExcel, this.Txtruta.Text);
+                CargaExcelCompleto(dtgExcel, Txtruta.Text);
                        
         }
     }
