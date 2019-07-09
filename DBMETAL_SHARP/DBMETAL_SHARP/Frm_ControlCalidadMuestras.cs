@@ -115,16 +115,6 @@ namespace DBMETAL_SHARP
 
             System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("co");
             System.Threading.Thread.CurrentThread.CurrentUICulture = System.Threading.Thread.CurrentThread.CurrentCulture;
-            dgvCantidadMuestras.Visible = false;
-            dgvCantidadPendientesMuestras.Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Visible = false;
-            dgvMuestrasDuplicadas.Visible = false;
-
-            label2.Visible = false;
-            lblCantidadPendienteMuestras.Visible = false;
-            lblCantidadMuestras.Visible = false;
-            lblCantidadPendienteMuestrasNumero.Visible = false;
-            label8.Visible = false;
             lblMuestrasDuplicadasNumero.Visible = false;
             label12.Visible = false;
             try

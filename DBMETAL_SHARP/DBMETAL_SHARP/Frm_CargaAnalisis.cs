@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using OfficeOpenXml;
 using ReglasdeNegocio;
+using Spire.Xls;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace DBMETAL_SHARP
 {
@@ -64,7 +66,7 @@ namespace DBMETAL_SHARP
                 }
 
                 if (c is Button || c is ComboBox || c is TextBox ||
-                    c is ListBox || c is DataGridView || c is RadioButton ||
+                    c is ListBox || c is DataGridView || c is System.Windows.Forms.RadioButton ||
                     c is RichTextBox || c is TabPage || c is TextBox || c is GroupBox)
                 {
 
@@ -73,14 +75,22 @@ namespace DBMETAL_SHARP
                     if (valueFilter != null)
                     {
                         if (valueFilter.Invisible > 0)
+                        {
                             c.Visible = false;
+                        }
                         else
+                        {
                             c.Visible = true;
+                        }
 
                         if (valueFilter.Disabled > 0)
+                        {
                             c.Enabled = false;
+                        }
                         else
+                        {
                             c.Enabled = true;
+                        }
                     }
                 }
             }
@@ -102,14 +112,22 @@ namespace DBMETAL_SHARP
                 if (valueFilter != null)
                 {
                     if (valueFilter.Invisible > 0)
+                    {
                         mi.Visible = false;
+                    }
                     else
+                    {
                         mi.Visible = true;
+                    }
 
                     if (valueFilter.Disabled > 0)
+                    {
                         mi.Enabled = false;
+                    }
                     else
+                    {
                         mi.Enabled = true;
+                    }
                 }
             }
         }
@@ -121,11 +139,15 @@ namespace DBMETAL_SHARP
         private void CmdExaminar_Click(object sender, EventArgs e)
         {
             if (this.Txtruta.Text == string.Empty)
+            {
                 MessageBox.Show("Debe seleccionar un archivo para cargar.", "Carga de Análisis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             else
             {
                 if (this.CmbTipoIngreso.Text == string.Empty)
+                {
                     MessageBox.Show("Debe seleccionar un tipo de ingreso para el carge del archivo de carga.", "Carga de Análisis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
                 else
                 {
                     if (this.Txtruta.Text != string.Empty)
@@ -163,7 +185,7 @@ namespace DBMETAL_SHARP
         internal void Cargar()
         {
             try
-            {             
+            {
                 GuardarDatos guardarDatos = new GuardarDatos();
                 if (dataSet.Tables[0].Rows[3][1].ToString().Trim().ToUpper().Contains("PEQUEÑA MINERÍA"))
                 {
@@ -215,8 +237,7 @@ namespace DBMETAL_SHARP
                                     {
                                         peso = decimal.Parse(dataSet.Tables[0].Rows[j][5].ToString().Trim());
                                     }
-                                    SqlParameter[] array = GuardarDatos.Parametros_DetalleExcelPM("", text, num, au, ag, peso, "1", idLab);
-                                    array[array.Count<SqlParameter>() + 1] = new SqlParameter("@TipoIngreso", this.CmbTipoIngreso.SelectedText.ToString());
+                                    SqlParameter[] array = GuardarDatos.Parametros_DetalleExcelPM("", text, num, au, ag, peso, "1", idLab, CmbTipoIngreso.SelectedText.ToString());
                                     guardarDatos.Numerico("Sp_Moficiar_AnaQuiPM", array);
                                     if (num > decimal.Zero)
                                     {
@@ -274,7 +295,9 @@ namespace DBMETAL_SHARP
                         {
                             string selloControl = dataSet.Tables[0].Rows[k][0].ToString().Replace(" ", "");
                             if (string.IsNullOrEmpty(selloControl))
+                            {
                                 break;
+                            }
 
                             decimal au = 0;
                             decimal ag = 0;
@@ -289,32 +312,38 @@ namespace DBMETAL_SHARP
                                         if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][11].ToString().Trim()))
                                         {
                                             if (!decimal.TryParse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ","), out au))
+                                            {
                                                 au = decimal.Parse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][11].ToString().Length - 1));
+                                            }
                                         }
                                     }
                                     else
                                     {
                                         if (!decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ","), out au))
+                                        {
                                             au = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
+                                        }
                                     }
                                 }
                                 else
                                 {
                                     if (!decimal.TryParse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ","), out au))
+                                    {
                                         au = decimal.Parse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
+                                    }
                                 }
                             }
                             else
                             {
-                                /* Modificado Alvaro Araujo 06/06/2019 */ 
+                                /* Modificado Alvaro Araujo 06/06/2019 */
                                 string valorEntrada = string.Empty;
                                 if (dataSet.Tables[0].Rows[k][1].ToString().Contains("<"))
                                 {
                                     valorEntrada = dataSet.Tables[0].Rows[k][1].ToString();
-                                    var resultante = valorEntrada.Trim(new Char[] { ' ', '<'});
+                                    var resultante = valorEntrada.Trim(new Char[] { ' ', '<' });
                                     var valorCambio = (Convert.ToDouble(resultante.Replace(".", ",")) / 2);
                                     var valoreRedondeo = Math.Round(valorCambio * 1000);
-                                    au = Convert.ToDecimal (valoreRedondeo / 1000);
+                                    au = Convert.ToDecimal(valoreRedondeo / 1000);
                                 }
                                 else if (dataSet.Tables[0].Rows[k][1].ToString().Contains(">"))
                                 {
@@ -330,19 +359,25 @@ namespace DBMETAL_SHARP
                                                 if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][11].ToString().Trim()))
                                                 {
                                                     if (!decimal.TryParse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ","), out au))
+                                                    {
                                                         au = decimal.Parse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][11].ToString().Length - 1));
+                                                    }
                                                 }
                                             }
                                             else
                                             {
                                                 if (!decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ","), out au))
+                                                {
                                                     au = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
+                                                }
                                             }
                                         }
                                         else
                                         {
                                             if (!decimal.TryParse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ","), out au))
+                                            {
                                                 au = decimal.Parse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
+                                            }
                                         }
                                     }
                                     else
@@ -576,7 +611,9 @@ namespace DBMETAL_SHARP
         {
             //Framework 2.0 version of this method. there is an easier way in F4        
             if (sourceArray == null || sourceArray.Length == 0)
+            {
                 throw new ArgumentException("Median of empty array not defined.");
+            }
 
             //make sure the list is sorted, but use a new array
             T[] sortedArray = cloneArray ? (T[])sourceArray.Clone() : sortedArray = sourceArray;
@@ -586,7 +623,9 @@ namespace DBMETAL_SHARP
             int size = sortedArray.Length;
             int mid = size / 2;
             if (size % 2 != 0)
+            {
                 return sortedArray[mid];
+            }
 
             dynamic value1 = sortedArray[mid];
             dynamic value2 = sortedArray[mid - 1];
@@ -596,7 +635,7 @@ namespace DBMETAL_SHARP
             //return (sortedArray[mid] + value2) * 0.5;
         }
 
-        decimal Median(decimal[] xs)
+        private decimal Median(decimal[] xs)
         {
             var ys = xs.OrderBy(x => x).ToList();
             double mid = (ys.Count - 1) / 2.0;
@@ -625,7 +664,42 @@ namespace DBMETAL_SHARP
 
             if (Txtruta.Text != string.Empty)
                 CargaExcelCompleto(dtgExcel, Txtruta.Text);
-                       
+
+            //CargaExcel2Forma(openFileDialog);
+
+        }
+
+        private void CargaExcel2Forma(OpenFileDialog openFileDialog)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                label2.Visible = true;
+                Txtruta.Text = openFileDialog.FileName;
+                FileInfo oFi = new FileInfo(openFileDialog.FileName);
+                string sExt = oFi.Extension.ToString();
+                descripcionArchivo = oFi.Name.Substring(0, oFi.Name.ToString().Length - sExt.ToString().Length);
+
+                Excel.Application oExc = new Excel.Application();
+                //Excel.Worksheet oSheeds = new Excel.Worksheet();
+                oExc.Workbooks.Open(Txtruta.Text, 0, true, 5, Type.Missing, Type.Missing, false, Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, null, null);
+                oExc.Quit();
+            }
+            try
+            {
+                DataTable dtXls = new DataTable();
+                Workbook workbook = new Workbook();
+
+                workbook.LoadFromFile(Txtruta.Text);
+                Worksheet sheet = workbook.Worksheets[0];
+
+                dtXls = sheet.ExportDataTable();
+                dtgExcel.DataSource = dtXls;
+                dtgExcel.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

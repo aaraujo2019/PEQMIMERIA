@@ -248,7 +248,7 @@ namespace ReglasdeNegocio
                 new SqlParameter("@Usuario", Usuario)
             };
         }
-        public static SqlParameter[] Parametros_DetalleExcelPM(string Op, string SelloControl, decimal humedad, decimal au, decimal ag, decimal peso, string usuario, string idLab)
+        public static SqlParameter[] Parametros_DetalleExcelPM(string Op, string SelloControl, decimal humedad, decimal au, decimal ag, decimal peso, string usuario, string idLab, string TipoIngreso)
         {
             return new SqlParameter[]
             {
@@ -258,7 +258,8 @@ namespace ReglasdeNegocio
                 new SqlParameter("@ag", ag),
                 new SqlParameter("@peso", peso),
                 new SqlParameter("@usuario", usuario),
-                new SqlParameter("@IdLab", idLab)
+                new SqlParameter("@IdLab", idLab),
+                new SqlParameter("@TipoIngreso", TipoIngreso)
             };
         }
         public static SqlParameter[] Parametros_DetalleExcelZandor(string Op, string SelloControl, decimal au, decimal augr, string usuario)
