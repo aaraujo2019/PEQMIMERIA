@@ -462,56 +462,31 @@ namespace DBMETAL_SHARP
 
                 Reader = ConsultaEntidades.ObtenerMuestroDia("SpConsulta_Tablas", Operation, dateValue, 0, "0");
 
-                Reader = LlenarGridDeCantidadDeMuestrasyEnLaboratorio(Reader);
-                Reader = LlenarGridDeMuestrasPendientes(dateValue, ref Operation, permisoConsulta);
+                Reader = LlenarGridDeCantidadDeMuestrasyEnLaboratorio(Reader, dateValue, Operation);
+                LlenarGridDeMuestrasPendientes(out Reader, dateValue, out Operation, permisoConsulta);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error1 :", ex.Message);
             }
         }
 
-        private List<Ent_CalidadMuestro> LlenarGridDeMuestrasPendientes(DateTime dateValue, ref string Operation, Roles_Permisos permisoConsulta)
+        private void LlenarGridDeMuestrasPendientes(out List<Ent_CalidadMuestro> Reader, DateTime dateValue, out string Operation, Roles_Permisos permisoConsulta)
         {
-            List<Ent_CalidadMuestro> Reader = ConsultaEntidades.ObtenerMuestroDia("SpConsulta_Tablas", Operation, dateValue, 1, "0");
-            Reader = Reader.OrderBy(r => r.NombreProyecto).ToList();
-
-            dgvCantidadDeMuestrasEnElLaboratorio.DataSource = Reader;
-            lblCantidadMuestrasNumero.Visible = true;
-            label12.Visible = true;
-            lblCantidadMuestrasNumero.Text = Reader.Count().ToString();
-            txtBuscarSelloControl.Text = string.Empty;
-
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[0].HeaderText = "Concecutivo Báscula";
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[1].HeaderText = "Sello Control";
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[2].HeaderText = "Nombre Proyecto";
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns["Peso"].DefaultCellStyle.Format = "##,##.00";
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[5].Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[6].Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[7].Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[8].Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[9].Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns[11].Visible = false;
-            dgvCantidadDeMuestrasEnElLaboratorio.Columns["Hora"].Visible = false;
-
-            dgvCantidadDeMuestrasEnElLaboratorio.Visible = true;
-            dgvCantidadDeMuestrasEnElLaboratorio.AutoResizeColumns();
-
-
             if (permisoConsulta.ContenedorOtros > 0 && permisoConsulta.ContenedorPeqMineria > 0 && permisoConsulta.ContenedorZandor > 0)
             {
                 Operation = "CalidadMuestreoPMP";
             }
             else
+            { 
                 if (permisoConsulta.ContenedorOtros > 0 || permisoConsulta.ContenedorPeqMineria > 0)
-            {
-                Operation = "CalidadMOtrPMP";
-            }
-            else
-            {
-                Operation = "CalidadMZandorPMP";
+                {
+                    Operation = "CalidadMOtrPMP";
+                }
+                else
+                {
+                    Operation = "CalidadMZandorPMP";
+                }
             }
 
             Reader = ConsultaEntidades.ObtenerMuestroDia("SpConsulta_Tablas", Operation, dateValue, 0, "0");
@@ -549,10 +524,9 @@ namespace DBMETAL_SHARP
 
             label15.Text = "--";
             label16.Text = "--";
-            return Reader;
         }
 
-        private List<Ent_CalidadMuestro> LlenarGridDeCantidadDeMuestrasyEnLaboratorio(List<Ent_CalidadMuestro> Reader)
+        private List<Ent_CalidadMuestro> LlenarGridDeCantidadDeMuestrasyEnLaboratorio(List<Ent_CalidadMuestro> Reader, DateTime dateValue, string Operation)
         {
             if (Reader != null && Reader.Count() > 0)
             {
@@ -581,6 +555,13 @@ namespace DBMETAL_SHARP
                 dgvCantidadMuestras.Columns["Peso"].DefaultCellStyle.Format = "##,##.00";
                 dgvCantidadMuestras.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
+                for (int i = 0; i < Reader.Count; i++)
+                {
+                    if (this.dgvCantidadMuestras.Rows[i].Cells[6].Value != null)
+                    {
+                        this.dgvCantidadMuestras.Rows[i].Cells[1].Style.NullValue = this.dgvCantidadMuestras.Rows[i].Cells[6].Value.ToString();
+                    }
+                }
                 dgvCantidadMuestras.AutoResizeColumns();
             }
             else
@@ -590,6 +571,30 @@ namespace DBMETAL_SHARP
                 this.dgvCantidadMuestras.Rows.Clear();
             }
 
+            Reader = ConsultaEntidades.ObtenerMuestroDia("SpConsulta_Tablas", Operation, dateValue, 1, "0");
+            Reader = Reader.OrderBy(r => r.NombreProyecto).ToList();
+
+            dgvCantidadDeMuestrasEnElLaboratorio.DataSource = Reader;
+            lblCantidadMuestrasNumero.Visible = true;
+            label12.Visible = true;
+            lblCantidadMuestrasNumero.Text = Reader.Count().ToString();
+            txtBuscarSelloControl.Text = string.Empty;
+
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[0].HeaderText = "Concecutivo Báscula";
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[1].HeaderText = "Sello Control";
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[2].HeaderText = "Nombre Proyecto";
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns["Peso"].DefaultCellStyle.Format = "##,##.00";
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[5].Visible = false;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[6].Visible = false;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[7].Visible = false;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[8].Visible = false;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[9].Visible = false;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns[11].Visible = false;
+            dgvCantidadDeMuestrasEnElLaboratorio.Columns["Hora"].Visible = false;
+
+            dgvCantidadDeMuestrasEnElLaboratorio.Visible = true;
+            dgvCantidadDeMuestrasEnElLaboratorio.AutoResizeColumns();
             return Reader;
         }
 
@@ -766,7 +771,6 @@ namespace DBMETAL_SHARP
                 else
                 {
                     lblMuestrasDuplicadasNumero.Visible = false;
-                    label8.Visible = false;
                     dgvMuestrasDuplicadas.Visible = false;
                 }
             }
@@ -968,8 +972,6 @@ namespace DBMETAL_SHARP
                 }
 
                 GuardarDatos Guardar = new GuardarDatos();
-
-
                 foreach (DataGridViewRow row in dgvMuestrasDuplicadas.Rows)
                 {
                     SqlParameter[] ParamSQl = GuardarDatos.Parametros_Update_QAQCPM(Convert.ToBoolean(row.Cells[13].Value), Convert.ToInt32(row.Cells[2].Value), row.Cells[3].Value.ToString().Trim(), Convert.ToBoolean(row.Cells[14].Value));
@@ -992,8 +994,7 @@ namespace DBMETAL_SHARP
                 List<Ent_CalidadMuestro> dt = dgvMuestrasDuplicadas.DataSource as List<Ent_CalidadMuestro>;
                 dgvMuestrasDuplicadas.DataSource = null;
                 Ent_CalidadMuestro insertRegister = new Ent_CalidadMuestro();
-
-                Entidades.Ent_Fecha Reader = new Entidades.Ent_Fecha();
+                Ent_Fecha Reader = new Ent_Fecha();
 
                 dt = dt.OrderBy(s => s.SelloControl).ToList();
 

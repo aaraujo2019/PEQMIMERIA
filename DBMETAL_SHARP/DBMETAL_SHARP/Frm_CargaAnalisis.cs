@@ -237,7 +237,7 @@ namespace DBMETAL_SHARP
                                     {
                                         peso = decimal.Parse(dataSet.Tables[0].Rows[j][5].ToString().Trim());
                                     }
-                                    SqlParameter[] array = GuardarDatos.Parametros_DetalleExcelPM("", text, num, au, ag, peso, "1", idLab, CmbTipoIngreso.SelectedText.ToString());
+                                    SqlParameter[] array = GuardarDatos.Parametros_DetalleExcelPM("", text, num, au, ag, peso, "1", idLab, CmbTipoIngreso.Text);
                                     guardarDatos.Numerico("Sp_Moficiar_AnaQuiPM", array);
                                     if (num > decimal.Zero)
                                     {
@@ -536,7 +536,7 @@ namespace DBMETAL_SHARP
             {
                 try
                 {
-                    oleDbConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + SLibro + ";Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"");
+                    oleDbConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + SLibro + ";Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"");
                     oleDbConnection.Open();
                 }
                 catch (Exception)
@@ -659,17 +659,17 @@ namespace DBMETAL_SHARP
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer);
             this.descripcionArchivo = openFileDialog.FileName;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-                Txtruta.Text = openFileDialog.FileName;
+            //if (openFileDialog.ShowDialog() == DialogResult.OK)
+            //    Txtruta.Text = openFileDialog.FileName;
 
-            if (Txtruta.Text != string.Empty)
-                CargaExcelCompleto(dtgExcel, Txtruta.Text);
+            //if (Txtruta.Text != string.Empty)
+            //    CargaExcelCompleto(dtgExcel, Txtruta.Text);
 
-            //CargaExcel2Forma(openFileDialog);
-
+            CargaExcelFormaSinProvider(openFileDialog);
         }
 
-        private void CargaExcel2Forma(OpenFileDialog openFileDialog)
+
+        private void CargaExcelFormaSinProvider(OpenFileDialog openFileDialog)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -680,7 +680,6 @@ namespace DBMETAL_SHARP
                 descripcionArchivo = oFi.Name.Substring(0, oFi.Name.ToString().Length - sExt.ToString().Length);
 
                 Excel.Application oExc = new Excel.Application();
-                //Excel.Worksheet oSheeds = new Excel.Worksheet();
                 oExc.Workbooks.Open(Txtruta.Text, 0, true, 5, Type.Missing, Type.Missing, false, Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, null, null);
                 oExc.Quit();
             }
@@ -691,8 +690,8 @@ namespace DBMETAL_SHARP
 
                 workbook.LoadFromFile(Txtruta.Text);
                 Worksheet sheet = workbook.Worksheets[0];
-
                 dtXls = sheet.ExportDataTable();
+                dataSet.Tables.Add(dtXls);
                 dtgExcel.DataSource = dtXls;
                 dtgExcel.AutoResizeColumns();
             }
