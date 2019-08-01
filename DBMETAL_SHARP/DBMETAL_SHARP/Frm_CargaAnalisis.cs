@@ -187,15 +187,17 @@ namespace DBMETAL_SHARP
             try
             {
                 GuardarDatos guardarDatos = new GuardarDatos();
-                if (dataSet.Tables[0].Rows[3][1].ToString().Trim().ToUpper().Contains("PEQUEÑA MINERÍA"))
+
+                // Analisis Lab SGS
+                if (dataSet.Tables[0].Rows[2][1].ToString().Trim().ToUpper().Contains("PEQUEÑA MINERÍA"))
                 {
                     try
                     {
                         LblTitulos.Text = "Análisis Químico Pequeña Minería";
                         typeFile = 0;
                         string value = string.Empty;
-                        string idLab = dataSet.Tables[0].Rows[1][1].ToString().Trim();
-                        for (int j = 10; j < dataSet.Tables[0].Rows.Count; j++)
+                        string idLab = dataSet.Tables[0].Rows[0][1].ToString().Trim();
+                        for (int j = 9; j < dataSet.Tables[0].Rows.Count; j++)
                         {
                             string text = dataSet.Tables[0].Rows[j][0].ToString().Trim();
                             if (string.IsNullOrEmpty(value))
@@ -215,25 +217,26 @@ namespace DBMETAL_SHARP
 
                             try
                             {
-                                if (!string.IsNullOrEmpty(text) && !text.ToUpper().Trim().Contains("BLANK_PREP") && !text.ToUpper().Trim().Contains("STD") && !text.ToUpper().Trim().Contains("STD") && !text.ToUpper().Trim().Contains("BLANK"))
+                                if (!string.IsNullOrEmpty(text) && !text.ToUpper().Trim().Contains("BLANK_PREP") && !text.ToUpper().Trim().Contains("STD") && !text.ToUpper().Trim().Contains("STD") && !text.ToUpper().Trim().Contains("BLANK")
+                                    && !text.ToUpper().Trim().Contains("BLK BLANK"))
                                 {
                                     decimal num = 0m;
                                     decimal au = 0m;
                                     decimal ag = 0m;
                                     decimal peso = 0m;
-                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][2].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][2].ToString().Trim().Replace(".", ","), style, provider, out num))
+                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][2].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][2].ToString().Trim(), style, provider, out num))
                                     {
                                         num = decimal.Parse(dataSet.Tables[0].Rows[j][2].ToString().Trim());
                                     }
-                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][3].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][3].ToString().Trim().Replace(".", ","), style, provider, out au))
+                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][3].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][3].ToString(), style, provider, out au))
                                     {
                                         au = decimal.Parse(dataSet.Tables[0].Rows[j][3].ToString().Trim());
                                     }
-                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][4].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][4].ToString().Trim().Replace(".", ","), style, provider, out ag))
+                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][4].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][4].ToString().Trim(), style, provider, out ag))
                                     {
                                         ag = decimal.Parse(dataSet.Tables[0].Rows[j][4].ToString().Trim());
                                     }
-                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][5].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][5].ToString().Trim().Replace(".", ","), style, provider, out peso))
+                                    if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[j][5].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[j][5].ToString().Trim(), style, provider, out peso))
                                     {
                                         peso = decimal.Parse(dataSet.Tables[0].Rows[j][5].ToString().Trim());
                                     }
@@ -260,13 +263,13 @@ namespace DBMETAL_SHARP
                     }
                 }
 
-                if (this.CmbTipoIngreso.Text == "Reclamos")
+                if (CmbTipoIngreso.Text == "Reclamos")
                 {
-                    if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("INFORME DE RECLAMOS"))
+                    if (dataSet.Tables[0].Columns[0].ToString().Trim().ToUpper().Contains("INFORME DE RECLAMOS"))
                     {
                         LblTitulos.Text = "INFORME DE RECLAMOS";
                         typeFile = 2;
-                        for (int k = 45; k < dataSet.Tables[0].Rows.Count; k++)
+                        for (int k = 44; k < dataSet.Tables[0].Rows.Count; k++)
                         {
                             string selloControl = dataSet.Tables[0].Rows[k][0].ToString().Replace(" ", "");
                             if (string.IsNullOrEmpty(selloControl))
@@ -274,9 +277,9 @@ namespace DBMETAL_SHARP
                                 break;
                             }
                             decimal humedad = 0m;
-                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][3].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ","), out humedad))
+                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][3].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim(), out humedad))
                             {
-                                humedad = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
+                                humedad = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
                             }
                             SqlParameter[] pparametros = GuardarDatos.Parametros_DetalleExcelHumedad("", selloControl, humedad, "1");
                             guardarDatos.Numerico("Sp_Moficiar_AnaQuiHum", pparametros);
@@ -284,14 +287,14 @@ namespace DBMETAL_SHARP
                         MessageBox.Show("Importacion Finalizada");
                     }
 
-                    if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("ACTLABS"))
+                    if (dataSet.Tables[0].Columns[0].ToString().Trim().ToUpper().Contains("ACTLABS"))
                     {
                         LblTitulos.Text = "ACTLABS Colombia S.A.S.";
                         typeFile = 2;
 
-                        string IdLab = dataSet.Tables[0].Rows[2][1].ToString();
+                        string IdLab = dataSet.Tables[0].Rows[1][1].ToString();
 
-                        for (int k = 13; k < dataSet.Tables[0].Rows.Count; k++)
+                        for (int k = 12; k < dataSet.Tables[0].Rows.Count; k++)
                         {
                             string selloControl = dataSet.Tables[0].Rows[k][0].ToString().Replace(" ", "");
                             if (string.IsNullOrEmpty(selloControl))
@@ -311,25 +314,25 @@ namespace DBMETAL_SHARP
                                     {
                                         if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][11].ToString().Trim()))
                                         {
-                                            if (!decimal.TryParse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ","), out au))
+                                            if (!decimal.TryParse(dataSet.Tables[0].Rows[k][11].ToString().Trim(), out au))
                                             {
-                                                au = decimal.Parse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][11].ToString().Length - 1));
+                                                au = decimal.Parse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][11].ToString().Length - 1));
                                             }
                                         }
                                     }
                                     else
                                     {
-                                        if (!decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ","), out au))
+                                        if (!decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim(), out au))
                                         {
-                                            au = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
+                                            au = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    if (!decimal.TryParse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ","), out au))
+                                    if (!decimal.TryParse(dataSet.Tables[0].Rows[k][2].ToString().Trim(), out au))
                                     {
-                                        au = decimal.Parse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
+                                        au = decimal.Parse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
                                     }
                                 }
                             }
@@ -341,7 +344,7 @@ namespace DBMETAL_SHARP
                                 {
                                     valorEntrada = dataSet.Tables[0].Rows[k][1].ToString();
                                     var resultante = valorEntrada.Trim(new Char[] { ' ', '<' });
-                                    var valorCambio = (Convert.ToDouble(resultante.Replace(".", ",")) / 2);
+                                    var valorCambio = (Convert.ToDouble(resultante) / 2);
                                     var valoreRedondeo = Math.Round(valorCambio * 1000);
                                     au = Convert.ToDecimal(valoreRedondeo / 1000);
                                 }
@@ -350,7 +353,7 @@ namespace DBMETAL_SHARP
                                     valorEntrada = dataSet.Tables[0].Rows[k][1].ToString();
                                     var resultante = valorEntrada.Trim(new Char[] { ' ', '>' });
 
-                                    if (Convert.ToDouble(resultante.Replace(".", ",")) == 5.001)
+                                    if (Convert.ToDouble(resultante) == 5.001)
                                     {
                                         if (string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][2].ToString().Trim()))
                                         {
@@ -358,52 +361,52 @@ namespace DBMETAL_SHARP
                                             {
                                                 if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][11].ToString().Trim()))
                                                 {
-                                                    if (!decimal.TryParse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ","), out au))
+                                                    if (!decimal.TryParse(dataSet.Tables[0].Rows[k][11].ToString().Trim(), out au))
                                                     {
-                                                        au = decimal.Parse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][11].ToString().Length - 1));
+                                                        au = decimal.Parse(dataSet.Tables[0].Rows[k][11].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][11].ToString().Length - 1));
                                                     }
                                                 }
                                             }
                                             else
                                             {
-                                                if (!decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ","), out au))
+                                                if (!decimal.TryParse(dataSet.Tables[0].Rows[k][3].ToString().Trim(), out au))
                                                 {
-                                                    au = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
+                                                    au = decimal.Parse(dataSet.Tables[0].Rows[k][3].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][3].ToString().Length - 1));
                                                 }
                                             }
                                         }
                                         else
                                         {
-                                            if (!decimal.TryParse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ","), out au))
+                                            if (!decimal.TryParse(dataSet.Tables[0].Rows[k][2].ToString().Trim(), out au))
                                             {
-                                                au = decimal.Parse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
+                                                au = decimal.Parse(dataSet.Tables[0].Rows[k][2].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
                                             }
                                         }
                                     }
                                     else
                                     {
-                                        var valorCambio = (Convert.ToDouble(resultante.Replace(".", ",")) + 0.001);
+                                        var valorCambio = (Convert.ToDouble(resultante) + 0.001);
                                         au = Convert.ToDecimal(valorCambio);
                                     }
                                 }
                                 else
                                 {
-                                    if (!decimal.TryParse(dataSet.Tables[0].Rows[k][1].ToString().Trim().Replace(".", ","), out au))
+                                    if (!decimal.TryParse(dataSet.Tables[0].Rows[k][1].ToString().Trim(), out au))
                                     {
-                                        au = decimal.Parse(dataSet.Tables[0].Rows[k][1].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
+                                        au = decimal.Parse(dataSet.Tables[0].Rows[k][1].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][2].ToString().Length - 1));
                                     }
                                 }
                             }
 
 
-                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][12].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[k][12].ToString().Trim().Replace(".", ","), out peso))
+                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[k][12].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[k][12].ToString().Trim(), out peso))
                             {
-                                peso = decimal.Parse(dataSet.Tables[0].Rows[k][12].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[k][12].ToString().Length - 1));
+                                peso = decimal.Parse(dataSet.Tables[0].Rows[k][12].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[k][12].ToString().Length - 1));
                             }
 
                             ag = au;
 
-                            SqlParameter[] pparametros = GuardarDatos.CargaReclamosActLab(selloControl, IdLab, 0, au, ag, peso, this.CmbTipoIngreso.Text.ToString(), "1");
+                            SqlParameter[] pparametros = GuardarDatos.CargaReclamosActLab(selloControl, IdLab, 0, au, ag, peso, CmbTipoIngreso.Text.ToString(), "1");
                             guardarDatos.Numerico("Sp_Moficiar_ReclamosActlabs", pparametros);
                         }
                         MessageBox.Show("Importacion Finalizada");
@@ -425,97 +428,68 @@ namespace DBMETAL_SHARP
                                 break;
                             }
                             decimal humedad2 = 0m;
-                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[l][3].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[l][3].ToString().Trim().Replace(".", ","), out humedad2))
+                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[l][3].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[l][3].ToString().Trim(), out humedad2))
                             {
-                                humedad2 = decimal.Parse(dataSet.Tables[0].Rows[l][3].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[l][3].ToString().Length - 1));
+                                humedad2 = decimal.Parse(dataSet.Tables[0].Rows[l][3].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[l][3].ToString().Length - 1));
                             }
                             SqlParameter[] pparametros2 = GuardarDatos.Parametros_DetalleExcelHumedad("", text3, humedad2, "1");
                             guardarDatos.Numerico("Sp_Moficiar_AnaQuiHum", pparametros2);
                         }
                         MessageBox.Show("Importacion Finalizada");
                     }
-                    else
+                    
+                    // Renalisis y Retalla
+                    if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("LABORATORIO") && dataSet.Tables[0].Rows[1][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO"))
                     {
-                        if (dataSet.Tables[0].Rows[0][0].ToString().Trim().ToUpper().Contains("LABORATORIO") && dataSet.Tables[0].Rows[2][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO"))
+                        LblTitulos.Text = "Reporte de Análisis Químico";
+                        typeFile = 1;
+                        for (int m = 45; m < dataSet.Tables[0].Rows.Count; m++)
                         {
-                            LblTitulos.Text = "Analisis Laboratorio Químico Zandor Capital";
-                            typeFile = 1;
-                            for (int m = 46; m < dataSet.Tables[0].Rows.Count; m++)
+                            string text4 = dataSet.Tables[0].Rows[m][0].ToString().Replace(" ", "");
+
+                            if (!text4.ToUpper().Contains("DUPLIC"))
                             {
-                                string text4 = dataSet.Tables[0].Rows[m][0].ToString().Replace(" ", "");
-                                if (string.IsNullOrEmpty(text4))
+                                if (text4.Contains("+") || text4.Contains("-"))
                                 {
-                                    break;
-                                }
-                                decimal au2 = 0m;
-                                decimal augr = 0m;
-                                if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[m][1].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[m][1].ToString().Trim().Replace(".", ","), out au2))
-                                {
-                                    au2 = decimal.Parse(dataSet.Tables[0].Rows[m][1].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[m][1].ToString().Length - 1));
-                                }
-                                if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[m][2].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[m][2].ToString().Trim().Replace(".", ","), out augr))
-                                {
-                                    augr = decimal.Parse(dataSet.Tables[0].Rows[m][2].ToString().Replace(".", ",").Trim().Substring(1, dataSet.Tables[0].Rows[m][2].ToString().Length - 1));
-                                }
-                                SqlParameter[] pparametros3 = GuardarDatos.Parametros_DetalleExcelZandor("", text4, au2, augr, "1");
-                                guardarDatos.Numerico("Sp_Moficiar_AnaQuiZandor", pparametros3);
-                            }
-                            MessageBox.Show("Importacion Finalizada", "DB Metal", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        }
-                        else
-                        {
-                            if (dataSet.Tables[0].Rows[2][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO") || dataSet.Tables[0].Rows[1][0].ToString().Trim().ToUpper().Contains("REPORTE DE ANÁLISIS QUÍMICO"))
-                            {
-                                LblTitulos.Text = "Reporte de Análisis Químico";
-                                typeFile = 1;
-                                for (int n = 48; n < dataSet.Tables[0].Rows.Count; n++)
-                                {
-                                    string text5 = dataSet.Tables[0].Rows[n][0].ToString().Replace(" ", "");
-                                    if (!text5.ToUpper().Contains("DUPLIC"))
+                                    int length = text4.IndexOf("(");
+                                    text4 = text4.Substring(0, length);
+
+                                    if (dataSet.Tables[0].Rows[m][0].ToString().Contains("-"))
                                     {
-                                        if (text5.Contains("+") || text5.Contains("-"))
-                                        {
-                                            int length = text5.IndexOf("(");
-                                            text5 = text5.Substring(0, length);
-                                            if (dataSet.Tables[0].Rows[n][0].ToString().Contains("-"))
-                                            {
-                                                text5 += "A";
-                                            }
-                                            if (string.IsNullOrEmpty(text5))
-                                            {
-                                                break;
-                                            }
-                                            decimal au3 = 0m;
-                                            decimal num2 = 0m;
-                                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[n][1].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[n][1].ToString().Trim().Replace(".", ","), out au3))
-                                            {
-                                                au3 = decimal.Parse(dataSet.Tables[0].Rows[n][1].ToString().Trim().Replace(".", ",").Substring(0, dataSet.Tables[0].Rows[n][1].ToString().Length));
-                                            }
-                                            SqlParameter[] array2 = GuardarDatos.Parametros_DetalleExcelReanalisis(text5, au3, this.CmbTipoIngreso.Text.ToString());
-                                            guardarDatos.Numerico("Sp_Moficiar_AnaPMR", array2);
-                                        }
-                                        else
-                                        {
-                                            if (string.IsNullOrEmpty(text5))
-                                            {
-                                                break;
-                                            }
-                                            decimal au4 = 0m;
-                                            decimal num3 = 0m;
-                                            if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[n][1].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[n][1].ToString().Trim().Replace(".", ","), out au4))
-                                            {
-                                                au4 = decimal.Parse(dataSet.Tables[0].Rows[n][1].ToString().Trim().Replace(".", ",").Substring(1, dataSet.Tables[0].Rows[n][1].ToString().Length - 1));
-                                            }
-                                            SqlParameter[] parametros4 = GuardarDatos.Parametros_DetalleExcelReanalisis(text5, au4, this.CmbTipoIngreso.Text.ToString());
-                                            guardarDatos.Numerico("Sp_Moficiar_AnaPMR", parametros4);
-                                        }
+                                        text4 += "A";
                                     }
+
+                                    if (string.IsNullOrEmpty(text4))
+                                    {
+                                        break;
+                                    }
+                                        
                                 }
 
-                                MessageBox.Show("Importacion Finalizada", "DB Metal", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                decimal au2 = 0m;
+                                decimal augr = 0m;
+                                decimal peso = 0;
+                                if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[m][1].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[m][1].ToString().Trim(), out au2))
+                                {
+                                    au2 = decimal.Parse(dataSet.Tables[0].Rows[m][1].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[m][1].ToString().Length - 1));
+                                }
+
+                                if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[m][2].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[m][2].ToString().Trim(), out augr))
+                                {
+                                    augr = decimal.Parse(dataSet.Tables[0].Rows[m][2].ToString().Trim().Substring(1, dataSet.Tables[0].Rows[m][2].ToString().Length - 1));
+                                }
+
+                                if (!string.IsNullOrEmpty(dataSet.Tables[0].Rows[m][2].ToString().Trim()) && !decimal.TryParse(dataSet.Tables[0].Rows[m][2].ToString().Trim(), out peso))
+                                {
+                                    peso = decimal.Parse(dataSet.Tables[0].Rows[m][2].ToString().Trim().Substring(0, dataSet.Tables[0].Rows[m][2].ToString().Length));
+                                }
+
+                                SqlParameter[] pparametros3 = GuardarDatos.Parametros_DetalleExcelZandor("", text4, au2, augr, peso, "1", CmbTipoIngreso.Text.ToString());
+                                guardarDatos.Numerico("Sp_Moficiar_AnaQuiZandor", pparametros3);
                             }
                         }
-                    }
+                        MessageBox.Show("Importacion Finalizada", "DB Metal", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }                                         
                 }
             }
             catch (Exception ex3)

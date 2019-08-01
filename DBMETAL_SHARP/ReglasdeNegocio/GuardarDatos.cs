@@ -262,22 +262,25 @@ namespace ReglasdeNegocio
                 new SqlParameter("@TipoIngreso", TipoIngreso)
             };
         }
-        public static SqlParameter[] Parametros_DetalleExcelZandor(string Op, string SelloControl, decimal au, decimal augr, string usuario)
+        public static SqlParameter[] Parametros_DetalleExcelZandor(string Op, string SelloControl, decimal au, decimal augr, decimal peso, string usuario, string TipoIngreso)
         {
             return new SqlParameter[]
             {
                 new SqlParameter("@SelloControl", SelloControl.Trim()),
                 new SqlParameter("@au", au),
                 new SqlParameter("@augr", augr),
-                new SqlParameter("@usuario", usuario)
+                new SqlParameter("@peso", peso),
+                new SqlParameter("@usuario", usuario),
+                new SqlParameter("@TipoIngreso", TipoIngreso)
             };
         }
-        public static SqlParameter[] Parametros_DetalleExcelReanalisis(string SelloControl, decimal au, string tipoIngreso)
+        public static SqlParameter[] Parametros_DetalleExcelReanalisis(string SelloControl, decimal au, decimal peso, string tipoIngreso)
         {
             return new SqlParameter[]
             {
                 new SqlParameter("@SelloControl", SelloControl.Trim()),
                 new SqlParameter("@au", au),
+                new SqlParameter("@peso", peso),
                 new SqlParameter("@TipoIngreso", tipoIngreso)
             };
         }
