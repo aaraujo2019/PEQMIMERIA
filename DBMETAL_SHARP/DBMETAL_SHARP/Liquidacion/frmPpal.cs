@@ -257,5 +257,12 @@ namespace DBMETAL_SHARP
                 MdiParent = this
             }.Show();
         }
+
+        private void reporteDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFiltroReporte reporte = new frmFiltroReporte();
+            reporte.MdiParent = this;
+            reporte.Show();
+        }
     }
 }

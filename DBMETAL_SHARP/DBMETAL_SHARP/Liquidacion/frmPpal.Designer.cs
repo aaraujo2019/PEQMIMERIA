@@ -59,6 +59,7 @@ namespace DBMETAL_SHARP
             this.versión6000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.reporteDiarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,7 +185,8 @@ namespace DBMETAL_SHARP
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportesLiquidaciónToolStripMenuItem});
+            this.reportesLiquidaciónToolStripMenuItem,
+            this.reporteDiarioToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 19);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -239,6 +241,13 @@ namespace DBMETAL_SHARP
             this.versión6000ToolStripMenuItem.Size = new System.Drawing.Size(93, 19);
             this.versión6000ToolStripMenuItem.Text = "Versión 6.0.0.0";
             // 
+            // reporteDiarioToolStripMenuItem
+            // 
+            this.reporteDiarioToolStripMenuItem.Name = "reporteDiarioToolStripMenuItem";
+            this.reporteDiarioToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.reporteDiarioToolStripMenuItem.Text = "Reporte Diario";
+            this.reporteDiarioToolStripMenuItem.Click += new System.EventHandler(this.reporteDiarioToolStripMenuItem_Click);
+            // 
             // frmPpal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,5 +300,6 @@ namespace DBMETAL_SHARP
         private System.Windows.Forms.ToolStripMenuItem versión6000ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Menu_Maestros;
         private System.Windows.Forms.ToolStripMenuItem Menu_Proyectos;
+        private ToolStripMenuItem reporteDiarioToolStripMenuItem;
     }
 }

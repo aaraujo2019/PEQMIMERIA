@@ -483,6 +483,56 @@ namespace ReglasdeNegocio
             }
             return result;
         }
+
+
+        /*
+         * Alvaro Araujo Arrieta
+         * 21/08/2019
+         */
+
+        public static List<Ent_LiquidacionPeriodos> ObtenerPeriodosSp()
+        {
+            SqlCommand sqlCommand = new SqlCommand("Sp_Listar_PeriodosLiquidacion", Conexion.OpenConexion());
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            
+            List<Ent_LiquidacionPeriodos> result;
+
+            using (IDataReader dataReader = sqlCommand.ExecuteReader())
+            {
+                List<Ent_LiquidacionPeriodos> list = new List<Ent_LiquidacionPeriodos>();
+                IList<Ent_LiquidacionPeriodos> list2 = list;
+                list2.LoadFromReader(dataReader);
+                ConexionDB.CloseConexion(sqlCommand);
+                result = list2.ToList<Ent_LiquidacionPeriodos>();
+            }
+            return result;
+        }
+
+        public static DataSet CargarProyectos()
+        {
+            try
+            {
+                SqlConnection cn = Conexion.OpenConexion();
+                DataSet datosFiltros = new DataSet();
+
+                using (SqlCommand cmdConsulta = new SqlCommand("Sp_Listar_ProyectosMuestreo", cn))
+                {
+                    cmdConsulta.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter daConsulta = new SqlDataAdapter(cmdConsulta);
+                    daConsulta.Fill(datosFiltros);
+
+                    return datosFiltros;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+
+        //******************************************************************************
+
         public static List<Ent_LiquidacionPeriodosString> ObtenerPeriodosAdviableString(string SP_Consulta, string Op, string ParametroChar, long ParametroInt, string ParametroNumeric)
         {
             SqlParameter[] array = new SqlParameter[]
