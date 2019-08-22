@@ -116,6 +116,9 @@
     <Compile Include="Common\MyProgressBar .cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DBMETALDataSet.cs">
+      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBMETALDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -457,6 +460,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteMuestreoDiario.rdlc" />
     <EmbeddedResource Include="TextConcept.resx">
       <DependentUpon>TextConcept.cs</DependentUpon>
     </EmbeddedResource>

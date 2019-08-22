@@ -45,6 +45,8 @@ namespace DBMETAL_SHARP
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.LblTitulos = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNumOrden = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +79,7 @@ namespace DBMETAL_SHARP
             this.dtpEventEnd.Name = "dtpEventEnd";
             this.dtpEventEnd.Size = new System.Drawing.Size(164, 30);
             this.dtpEventEnd.TabIndex = 110;
-            this.dtpEventEnd.Value = new System.DateTime(2018, 5, 31, 0, 0, 0, 0);
+            this.dtpEventEnd.Value = new System.DateTime(2019, 8, 22, 0, 0, 0, 0);
             // 
             // dtpEventInitial
             // 
@@ -93,7 +95,7 @@ namespace DBMETAL_SHARP
             this.dtpEventInitial.Name = "dtpEventInitial";
             this.dtpEventInitial.Size = new System.Drawing.Size(161, 30);
             this.dtpEventInitial.TabIndex = 107;
-            this.dtpEventInitial.Value = new System.DateTime(2018, 5, 31, 0, 0, 0, 0);
+            this.dtpEventInitial.Value = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -137,6 +139,8 @@ namespace DBMETAL_SHARP
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtNumOrden);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.cmbPeriodo);
             this.groupBox2.Controls.Add(this.label3);
@@ -145,7 +149,7 @@ namespace DBMETAL_SHARP
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
             this.groupBox2.Location = new System.Drawing.Point(10, 136);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(650, 71);
+            this.groupBox2.Size = new System.Drawing.Size(650, 111);
             this.groupBox2.TabIndex = 134;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
@@ -175,7 +179,7 @@ namespace DBMETAL_SHARP
             this.BtnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnImprimir.Image = global::DBMETAL_SHARP.Properties.Resources.printer_setup;
             this.BtnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnImprimir.Location = new System.Drawing.Point(540, 222);
+            this.BtnImprimir.Location = new System.Drawing.Point(543, 266);
             this.BtnImprimir.Name = "BtnImprimir";
             this.BtnImprimir.Size = new System.Drawing.Size(117, 41);
             this.BtnImprimir.TabIndex = 135;
@@ -199,11 +203,31 @@ namespace DBMETAL_SHARP
             this.LblTitulos.Text = "Reportes Diario Muestreo Planta";
             this.LblTitulos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(16, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 18);
+            this.label5.TabIndex = 136;
+            this.label5.Text = "Número de Orden";
+            // 
+            // txtNumOrden
+            // 
+            this.txtNumOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.txtNumOrden.Location = new System.Drawing.Point(151, 64);
+            this.txtNumOrden.MaxLength = 10;
+            this.txtNumOrden.Name = "txtNumOrden";
+            this.txtNumOrden.Size = new System.Drawing.Size(137, 26);
+            this.txtNumOrden.TabIndex = 137;
+            // 
             // frmFiltroReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 278);
+            this.ClientSize = new System.Drawing.Size(674, 319);
             this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -214,6 +238,7 @@ namespace DBMETAL_SHARP
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte Diario ";
+            this.Load += new System.EventHandler(this.frmFiltroReporte_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -237,5 +262,7 @@ namespace DBMETAL_SHARP
         private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbPeriodo;
+        private TextBox txtNumOrden;
+        private Label label5;
     }
 }

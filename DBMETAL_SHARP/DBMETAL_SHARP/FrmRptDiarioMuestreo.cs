@@ -16,19 +16,22 @@ namespace Reportes
             InitializeComponent();
         }
 
-        public FrmRptDiarioMuestreo(string fechaInicio, string fechaFin, string proyecto, string periodo)
+        public FrmRptDiarioMuestreo(string fechaInicio, string fechaFin, string proyecto, string periodo, string numOrden)
         {
             InitializeComponent();
             FechaInicial = fechaInicio;
             FechaFinal = fechaFin;
             Periodo = periodo;
             Proyecto = proyecto;
+            NumOrden = numOrden;
         }
 
         public string FechaInicial { get; set; }
         public string FechaFinal { get; set; }
         public string Proyecto { get; set; }
         public string Periodo { get; set; }
+        public string NumOrden { get; set; }
+
         public string Imprimir { get; set; }
         public string Smtp { get; set; }
         public string Credencial { get; set; }
@@ -60,6 +63,15 @@ namespace Reportes
             {
                 this.GenerateReportPdf();
             }
+            DataTable datosReporte = new DataTable();
+            datosReporte = ConsultaEntidades.ReporteDiarioMuestreo(FechaInicial, FechaFinal, Proyecto, Periodo);
+
+            string reporte = Path.Combine(Application.StartupPath, @"Informes\Propiedades.rdlc");
+            this.reportViewer1.LocalReport.ReportPath = reporte;
+            this.reportViewer1.LocalReport.DataSources.Clear();
+            this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Predios", datosReporte));
+            this.reportViewer1.RefreshReport();
+
         }
     }
 }

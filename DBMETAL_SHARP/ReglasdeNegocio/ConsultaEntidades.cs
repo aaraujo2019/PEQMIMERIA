@@ -531,6 +531,35 @@ namespace ReglasdeNegocio
         }
 
 
+        public static DataTable ReporteDiarioMuestreo(string fechaInicio, string fechaFin, string proyecto, string periodo)
+        {
+            try
+            {
+                SqlConnection cn = Conexion.OpenConexion();
+                DataTable datosFiltros = new DataTable();
+
+                using (SqlCommand cmdConsulta = new SqlCommand("Sp_RptDiarioMuestreoPlanta", cn))
+                {
+                    cmdConsulta.CommandType = CommandType.StoredProcedure;
+                    cmdConsulta.Parameters.Clear();
+                    cmdConsulta.Parameters.AddWithValue("@pFechaIncio", fechaInicio);
+                    cmdConsulta.Parameters.AddWithValue("@pFechaFinal", fechaFin);
+                    cmdConsulta.Parameters.AddWithValue("@pProyecto", proyecto);
+                    cmdConsulta.Parameters.AddWithValue("@pPeriodo", periodo);
+                    cmdConsulta.Parameters.AddWithValue("@pNumorden", periodo);
+                    SqlDataAdapter daConsulta = new SqlDataAdapter(cmdConsulta);
+                    daConsulta.Fill(datosFiltros);
+
+                    return datosFiltros;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+
         //******************************************************************************
 
         public static List<Ent_LiquidacionPeriodosString> ObtenerPeriodosAdviableString(string SP_Consulta, string Op, string ParametroChar, long ParametroInt, string ParametroNumeric)
