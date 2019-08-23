@@ -531,7 +531,7 @@ namespace ReglasdeNegocio
         }
 
 
-        public static DataTable ReporteDiarioMuestreo(string fechaInicio, string fechaFin, string proyecto, string periodo)
+        public static DataTable ReporteDiarioMuestreo(string fechaInicio, string fechaFin, string proyecto, string periodo, string numOrden)
         {
             try
             {
@@ -546,7 +546,7 @@ namespace ReglasdeNegocio
                     cmdConsulta.Parameters.AddWithValue("@pFechaFinal", fechaFin);
                     cmdConsulta.Parameters.AddWithValue("@pProyecto", proyecto);
                     cmdConsulta.Parameters.AddWithValue("@pPeriodo", periodo);
-                    cmdConsulta.Parameters.AddWithValue("@pNumorden", periodo);
+                    cmdConsulta.Parameters.AddWithValue("@pNumorden", numOrden);
                     SqlDataAdapter daConsulta = new SqlDataAdapter(cmdConsulta);
                     daConsulta.Fill(datosFiltros);
 

@@ -116,13 +116,15 @@
     <Compile Include="Common\MyProgressBar .cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DBMETALDataSet.cs">
-      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    <Compile Include="MuestreoDiario.cs">
+      <DependentUpon>MuestreoDiario.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="DBMETALDataSet.Designer.cs">
+    <Compile Include="MuestreoDiario.Designer.cs">
+      <DependentUpon>MuestreoDiario.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmProyectos.cs">
       <SubType>Form</SubType>
@@ -351,6 +353,7 @@
     <Compile Include="TextConcept.Designer.cs">
       <DependentUpon>TextConcept.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="bin\Debug\Informes\ReporteMuestreoDiario.rdlc" />
     <EmbeddedResource Include="frmProyectos.resx">
       <DependentUpon>frmProyectos.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,20 +463,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteMuestreoDiario.rdlc" />
     <EmbeddedResource Include="TextConcept.resx">
       <DependentUpon>TextConcept.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DBMETALDataSet.xsc">
-      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    <None Include="MuestreoDiario.xsc">
+      <DependentUpon>MuestreoDiario.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="DBMETALDataSet.xsd">
+    <None Include="MuestreoDiario.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DBMETALDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>MuestreoDiario.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="DBMETALDataSet.xss">
-      <DependentUpon>DBMETALDataSet.xsd</DependentUpon>
+    <None Include="MuestreoDiario.xss">
+      <DependentUpon>MuestreoDiario.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Liquidacion\DataSet\ControlSecurityDataSet.xsc">
       <DependentUpon>ControlSecurityDataSet.xsd</DependentUpon>

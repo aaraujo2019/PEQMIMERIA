@@ -1,5 +1,5 @@
 ﻿
-namespace Reportes
+namespace DBMETAL_SHARP
 {
     partial class FrmRptDiarioMuestreo
     {

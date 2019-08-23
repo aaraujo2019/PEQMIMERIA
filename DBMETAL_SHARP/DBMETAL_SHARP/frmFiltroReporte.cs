@@ -1,6 +1,5 @@
 ﻿using Entidades;
 using ReglasdeNegocio;
-using Reportes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,6 +18,7 @@ namespace DBMETAL_SHARP
         public string SerialHDD { get; set; }
 
         #endregion
+
         public frmFiltroReporte()
         {
             InitializeComponent();
@@ -49,16 +49,14 @@ namespace DBMETAL_SHARP
             string wPeriodo = string.Empty;
             if (cmbProyecto.SelectedIndex != 0)
                 wProyecto = cmbProyecto.Text;
-
-
+            
             if (cmbPeriodo.SelectedIndex != 0)
                 wPeriodo = cmbPeriodo.Text;
 
             FrmRptDiarioMuestreo frmReporte = new FrmRptDiarioMuestreo(Convert.ToDateTime(dtpEventInitial.Text).ToString("yyyy-MM-dd"), 
                                                                         Convert.ToDateTime(dtpEventEnd.Text).ToString("yyyy-MM-dd"), wProyecto, wPeriodo, txtNumOrden.Text);
             frmReporte.Show();
-            object[] argument = null;
-            string nameReport = string.Empty;
+            string nameReport = "Reporte Diario Muestreo planta Maria Dama";
 
 
             if (string.IsNullOrEmpty(this.IpLocal))
